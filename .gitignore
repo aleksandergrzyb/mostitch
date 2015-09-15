@@ -6,6 +6,7 @@ cmake_install.cmake
 install_manifest.txt
 bin
 lib
+build/*
 
 ### C++ ###
 # Compiled Object files

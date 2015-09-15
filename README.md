@@ -15,6 +15,7 @@ This project requires:
 Just execute:
 
 ```
+mkdir build
 make
 sudo make install
 ```
