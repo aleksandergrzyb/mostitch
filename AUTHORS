@@ -1,12 +1,8 @@
-== AUTHORS ==
+## AUTHORS
 
- * Aleksander Grzyb
-   ** Email: aleksander.grzyb@gmail.com
+- Aleksander Grzyb (aleksander.grzyb@gmail.com)
+- Krzysztof Krawiec (krzysztof.krawiec@cs.put.poznan.pl)
 
- * Krzysztof Krawiec
-   ** Email: krzysztof.krawiec@cs.put.poznan.pl
+## ACKNOWLEDGEMENTS
 
-== ACKNOWLEDGEMENTS ==
-
-  See "thirdparty/LICENSES.txt" for a list of thirdparty software
-  used by this project and for their respective licenses.
+See "thirdparty/LICENSES.txt" for a list of thirdparty software used by this project and for their respective licenses.
