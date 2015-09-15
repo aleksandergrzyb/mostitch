@@ -1,6 +1,6 @@
 # Mostitch
 
-Program that automatically stitches set of retina eye images.
+Program that automatically stitches set of eye's retina images.
  
 ## Prerequisites
 
