@@ -1,0 +1,9 @@
+== LICENSES ==
+
+ * Software Name: Open Source Computer Vision Library
+   ** License Name: 3-clause BSD License
+   ** License File: share/licenses/LICENSE
+
+ * Software Name: Libconfig
+   ** License Name: GNU Lesser General Public License
+   ** License File: http://www.gnu.org/licenses/lgpl.html
