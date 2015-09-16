@@ -6,7 +6,7 @@ Program that automatically stitches set of eye's retina images.
 
 This project requires:
 
-- Cross-platform Make (CMake) v3.1.0+.
+- Cross-platform Make (CMake) v3.0.0+.
 - GNU Make or equivalent.
 - GCC or an alternative C++ compiler.
 
