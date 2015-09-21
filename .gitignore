@@ -17,3 +17,7 @@ build/*
 # Precompiled Headers
 *.gch
 *.pch
+
+# Doxyfile
+Doxyfile
+Doxyfile.bak
