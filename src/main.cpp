@@ -29,13 +29,6 @@ void createMosaic(vector<vector<AGImage>> &imagesMatrix, const AGParameters &par
     }
 }
 
-void modifyAbsoultePathForDataSetNumber(AGParameters &parameters, int dataSetNumber)
-{
-//    size_t positionOfSlash = parameters.imagesDirectoryAbsolutePath.find_last_of("/");
-//    string dataSetPath = parameters.imagesDirectoryAbsolutePath.substr(0, positionOfSlash) + "/" + "data_set_" + to_string(dataSetNumber);
-//    parameters.imagesDirectoryAbsolutePath = dataSetPath;
-}
-
 int main(int argc, const char *argv[])
 {
     bool testMode = false;
@@ -49,7 +42,6 @@ int main(int argc, const char *argv[])
         if (testMode) {
             int testMosaic = 4;
             vector<vector<AGImage>> imagesMatrix;
-            modifyAbsoultePathForDataSetNumber(parameters, testMosaic);
             imageLoader.loadTilesInMosaicNumber(imagesMatrix, testMosaic, error);
             if (error.isError) {
                 cout << error.description << endl; return EXIT_FAILURE;
@@ -60,7 +52,6 @@ int main(int argc, const char *argv[])
         else {
             for (int i = 1; i <= parameters.numberOfMosaics; ++i) {
                 vector<vector<AGImage>> imagesMatrix;
-                modifyAbsoultePathForDataSetNumber(parameters, i);
                 imageLoader.loadTilesInMosaicNumber(imagesMatrix, i, error);
                 if (error.isError) {
                     cout << error.description << endl; return EXIT_FAILURE;

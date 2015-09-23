@@ -3,7 +3,6 @@
 //  Copyright (c) 2015 Aleksander Grzyb. All rights reserved.
 //
 
-#include "../thirdparty/include/opencv2/imgproc/imgproc.hpp"
 #include "AGOpenCVHelper.h"
 
 #include <fstream>
@@ -11,7 +10,8 @@
 using namespace cv;
 using namespace std;
 
-#pragma mark - Handling image types
+#pragma mark - 
+#pragma mark Handling image types
 
 void AGOpenCVHelper::convertImageToColor(Mat &image)
 {
@@ -50,7 +50,9 @@ string AGOpenCVHelper::getImageTypeNameUsingImageType(int imageType, AGError &er
 
 #pragma mark - Geometric methods
 
-void AGOpenCVHelper::calculateLinearFunctionCoeffsUsingPoints(const cv::Point &pointOne, const cv::Point &pointTwo, std::vector<double> &coeffs)
+void AGOpenCVHelper::linearFunctionCoeffsUsingPoints(const cv::Point &pointOne,
+                                                     const cv::Point &pointTwo,
+                                                     std::vector<double> &coeffs)
 {
     if (pointTwo.x == pointOne.x) {
         coeffs.push_back(0.00);
@@ -63,7 +65,7 @@ void AGOpenCVHelper::calculateLinearFunctionCoeffsUsingPoints(const cv::Point &p
     coeffs.push_back(bCoeff);
 }
 
-double AGOpenCVHelper::getDistanceBetweenPoints(const Point &pointOne, const Point &pointTwo)
+double AGOpenCVHelper::distanceBetweenPoints(const Point &pointOne, const Point &pointTwo)
 {
     return sqrt(pow(pointOne.x - pointTwo.x, 2.0) + pow(pointOne.y - pointTwo.y, 2.0));
 }
@@ -97,13 +99,13 @@ bool AGOpenCVHelper::isPixelWhiteInImage(cv::Mat &image, const cv::Point &pixelP
     return false;
 }
 
-int AGOpenCVHelper::getPixelValueAtPointInImage(const cv::Mat &image, const cv::Point &pixelPosition, AGError &error)
+int AGOpenCVHelper::pixelValueAtPointInImage(const cv::Mat &image, const cv::Point &pixelPosition, AGError &error)
 {
     if (pixelPosition.x < 0 || pixelPosition.x >= image.size().width) {
-        error = { true, "getPixelValueAtPointInImage: Invalid x position." }; return 0;
+        error = { true, "pixelValueAtPointInImage: Invalid x position." }; return 0;
     }
     if (pixelPosition.y < 0 || pixelPosition.y >= image.size().height) {
-        error = { true, "getPixelValueAtPointInImage: Invalid y position." }; return 0;
+        error = { true, "pixelValueAtPointInImage: Invalid y position." }; return 0;
     }
     if (image.type() == CV_32F) {
         return static_cast<int>(image.at<float>(pixelPosition.y, pixelPosition.x));
@@ -113,7 +115,10 @@ int AGOpenCVHelper::getPixelValueAtPointInImage(const cv::Mat &image, const cv::
     }
 }
 
-void AGOpenCVHelper::setPixelValueAtPointInImage(const cv::Mat &image, const cv::Point &pixelPosition, const int pixelValue, AGError &error)
+void AGOpenCVHelper::setPixelValueAtPointInImage(const cv::Mat &image,
+                                                 const cv::Point &pixelPosition,
+                                                 const int pixelValue,
+                                                 AGError &error)
 {
     if (pixelPosition.x < 0 || pixelPosition.x >= image.size().width) {
         error = { true, "setPixelValueAtPointInImage: Invalid x position." }; return;
@@ -142,7 +147,10 @@ void AGOpenCVHelper::rotateImage(cv::Mat &image, const double angle)
     warpAffine(image, image, r, Size(len, len));
 }
 
-void AGOpenCVHelper::insertSourceImageIntoOutputImageAtPoint(const cv::Mat &sourceImage, cv::Mat &outputImage, const cv::Point &point, AGError &error)
+void AGOpenCVHelper::insertSourceImageIntoOutputImageAtPoint(const cv::Mat &sourceImage,
+                                                             cv::Mat &outputImage,
+                                                             const cv::Point &point,
+                                                             AGError &error)
 {
     if (!sourceImage.data || !outputImage.data) {
         error = { true, "insertSourceImageIntoOutputImageAtPoint: Couldn't insert source image into output. Check if images have data." }; return;
@@ -150,7 +158,11 @@ void AGOpenCVHelper::insertSourceImageIntoOutputImageAtPoint(const cv::Mat &sour
     sourceImage.copyTo(outputImage(Rect(point.x, point.y, sourceImage.cols, sourceImage.rows)));
 }
 
-void AGOpenCVHelper::linkTwoImagesTogether(const cv::Mat &imageOne, const cv::Mat &imageTwo, cv::Mat &outputImage, const ImageDirection &imageDirection, AGError &error)
+void AGOpenCVHelper::linkTwoImagesTogether(const cv::Mat &imageOne,
+                                           const cv::Mat &imageTwo,
+                                           cv::Mat &outputImage,
+                                           const ImageDirection &imageDirection,
+                                           AGError &error)
 {
     if (!imageOne.data || !imageTwo.data) {
         error = { true, "linkTwoImagesTogether: imageOne or imageTwo has no data." }; return;
@@ -195,14 +207,20 @@ void AGOpenCVHelper::linkTwoImagesTogether(const cv::Mat &imageOne, const cv::Ma
     outputImage = totalImage;
 }
 
-void AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(const AGImage &imageOne, const AGImage &imageTwo, const std::vector<cv::DMatch> &matches, cv::Mat &outputImage, const ImageDirection &imageDirection, AGError &error)
+void AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(const AGImage &imageOne,
+                                                         const AGImage &imageTwo,
+                                                         const std::vector<cv::DMatch> &matches,
+                                                         cv::Mat &outputImage,
+                                                         const ImageDirection &imageDirection,
+                                                         AGError &error)
 {
     if (!imageOne.image.data || !imageTwo.image.data) {
         error = { true, "linkTwoImagesTogetherAndDrawMatches: imageOne or imageTwo has no data." }; return;
     }
     
     if (imageOne.keypoints.empty() || imageTwo.keypoints.empty()) {
-        error = { true, "linkTwoImagesTogetherAndDrawMatches: imageOne.keypoints or imageTwo.keypoints are empty." }; return;
+        error = { true, "linkTwoImagesTogetherAndDrawMatches: imageOne.keypoints or imageTwo.keypoints are empty." };
+        return;
     }
     
     Mat first = imageOne.image.clone();
@@ -227,14 +245,17 @@ void AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(const AGImage &imageOne
     AGError checkError = {false, ""};
     AGOpenCVHelper::linkTwoImagesTogether(first, second, outputImage, imageDirection, checkError);
     if (checkError.isError) {
-        error = { true, "linkTwoImagesTogetherAndDrawMatches: drawMatches method failed inside with error: " + checkError.description }; return;
+        error = { true, "linkTwoImagesTogetherAndDrawMatches: drawMatches method failed inside with error: "
+            + checkError.description };
+        return;
     }
     
     switch (imageDirection) {
         case Up:
             for (int i = 0; i < matches.size(); i++) {
                 Point pointTwo = imageTwo.keypoints[matches[i].trainIdx].pt;
-                Point pointOne(imageOne.keypoints[matches[i].queryIdx].pt.x, imageOne.keypoints[matches[i].queryIdx].pt.y + imageTwo.image.rows);
+                Point pointOne(imageOne.keypoints[matches[i].queryIdx].pt.x,
+                               imageOne.keypoints[matches[i].queryIdx].pt.y + imageTwo.image.rows);
                 line(outputImage, pointOne, pointTwo, Scalar(0, 0, 255));
             }
             break;
@@ -242,7 +263,8 @@ void AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(const AGImage &imageOne
         case Down:
             for (int i = 0; i < matches.size(); i++) {
                 Point pointOne = imageOne.keypoints[matches[i].queryIdx].pt;
-                Point pointTwo(imageTwo.keypoints[matches[i].trainIdx].pt.x, imageTwo.keypoints[matches[i].trainIdx].pt.y + imageOne.image.rows);
+                Point pointTwo(imageTwo.keypoints[matches[i].trainIdx].pt.x,
+                               imageTwo.keypoints[matches[i].trainIdx].pt.y + imageOne.image.rows);
                 line(outputImage, pointOne, pointTwo, Scalar(0, 0, 255));
             }
             break;
@@ -250,7 +272,8 @@ void AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(const AGImage &imageOne
         case Left:
             for (int i = 0; i < matches.size(); i++) {
                 Point pointTwo = imageTwo.keypoints[matches[i].trainIdx].pt;
-                Point pointOne(imageOne.keypoints[matches[i].queryIdx].pt.x + imageTwo.image.cols, imageOne.keypoints[matches[i].queryIdx].pt.y);
+                Point pointOne(imageOne.keypoints[matches[i].queryIdx].pt.x + imageTwo.image.cols,
+                               imageOne.keypoints[matches[i].queryIdx].pt.y);
                 line(outputImage, pointOne, pointTwo, Scalar(0, 0, 255));
             }
             break;
@@ -258,7 +281,8 @@ void AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(const AGImage &imageOne
         case Right:
             for (int i = 0; i < matches.size(); i++) {
                 Point pointOne = imageOne.keypoints[matches[i].queryIdx].pt;
-                Point pointTwo(imageTwo.keypoints[matches[i].trainIdx].pt.x + imageOne.image.cols, imageTwo.keypoints[matches[i].trainIdx].pt.y);
+                Point pointTwo(imageTwo.keypoints[matches[i].trainIdx].pt.x + imageOne.image.cols,
+                               imageTwo.keypoints[matches[i].trainIdx].pt.y);
                 line(outputImage, pointOne, pointTwo, Scalar(255, 0, 0));
             }
             break;
@@ -267,7 +291,10 @@ void AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(const AGImage &imageOne
 
 #pragma mark - Saving and showing images
 
-void AGOpenCVHelper::saveImage(cv::Mat &image, const std::string &imageName, const std::string &savePath, AGError &error)
+void AGOpenCVHelper::saveImage(cv::Mat &image,
+                               const std::string &imageName,
+                               const std::string &savePath,
+                               AGError &error)
 {
     if (imageName.empty() || savePath.empty()) {
         error = { true, "saveImage: imageName or savePath is empty." }; return;
@@ -284,7 +311,10 @@ void AGOpenCVHelper::saveImage(cv::Mat &image, const std::string &imageName, con
     }
 }
 
-void AGOpenCVHelper::saveKeypointsToFile(const AGImage &image, const std::string &fileName, const std::string &savePath, AGError &error)
+void AGOpenCVHelper::saveKeypointsToFile(const AGImage &image,
+                                         const std::string &fileName,
+                                         const std::string &savePath,
+                                         AGError &error)
 {
     if (savePath.empty() || fileName.empty()) {
         error = { true, "saveKeypointsToFile: savePath or fileName is empty" }; return;
@@ -296,12 +326,16 @@ void AGOpenCVHelper::saveKeypointsToFile(const AGImage &image, const std::string
     string path = savePath + "/" + fileName + ".txt";
     file.open(path.c_str());
     for (int i = 0; i < image.keypoints.size(); i++) {
-        file << i << " x = " << to_string(image.keypoints[i].pt.x) << " y = " << to_string(image.keypoints[i].pt.y) << "\n";
+        file << i << " x = " << to_string(image.keypoints[i].pt.x) << " y = "
+        << to_string(image.keypoints[i].pt.y) << "\n";
     }
     file.close();
 }
 
-void AGOpenCVHelper::saveMatchesToFile(const std::vector<cv::DMatch> &matches, const std::string &fileName, const std::string &savePath, AGError &error)
+void AGOpenCVHelper::saveMatchesToFile(const std::vector<cv::DMatch> &matches,
+                                       const std::string &fileName,
+                                       const std::string &savePath,
+                                       AGError &error)
 {
     if (savePath.empty() || fileName.empty()) {
         error = { true, "saveMatchesToFile: savePath or fileName is empty" }; return;
@@ -313,7 +347,8 @@ void AGOpenCVHelper::saveMatchesToFile(const std::vector<cv::DMatch> &matches, c
     string path = savePath + "/" + fileName + ".txt";
     file.open(path.c_str());
     for (int i = 0; i < matches.size(); i++) {
-        file << i << " one = " << to_string(matches[i].queryIdx) << " train = " << to_string(matches[i].trainIdx) << "\n";
+        file << i << " one = " << to_string(matches[i].queryIdx) << " train = "
+        << to_string(matches[i].trainIdx) << "\n";
     }
     file.close();
 }
@@ -335,7 +370,8 @@ string AGOpenCVHelper::getDescriptionOfImage(const AGImage &image, AGError &erro
     if (image.name.empty()) {
         error = { true, "getDescriptionOfImage: Image name is empty." }; return "";
     }
-    return "Image coordinates in mosaic x = " + to_string(image.xCoordinate) + " y = " + to_string(image.yCoordinate) + "; Image file name: " + image.name;
+    return "Image coordinates in mosaic x = " + to_string(image.xCoordinate) + " y = "
+    + to_string(image.yCoordinate) + "; Image file name: " + image.name;
 }
 
 void AGOpenCVHelper::loadImage(Mat &image, const string &loadPath, AGError &error)

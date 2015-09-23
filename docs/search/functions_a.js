@@ -1,7 +1,11 @@
 var searchData=
 [
-  ['removeneighbourwhitepixels',['removeNeighbourWhitePixels',['../class_a_g_image_preprocessing.html#aba67e3497f1aa288ed1d6ad9dc98991d',1,'AGImagePreprocessing']]],
-  ['removepathpointsduplicates',['removePathPointsDuplicates',['../class_a_g_image_preprocessing.html#a5fb2c25b8919ad813819f074885e3b52',1,'AGImagePreprocessing']]],
-  ['resetvisitedpixels',['resetVisitedPixels',['../class_a_g_image_preprocessing.html#a602ab8ae0cb48175f2d0175d9daade30',1,'AGImagePreprocessing']]],
-  ['rotateimage',['rotateImage',['../class_a_g_open_c_v_helper.html#a0c0155729fbe57379c622134044627e4',1,'AGOpenCVHelper']]]
+  ['saveimage',['saveImage',['../class_a_g_open_c_v_helper.html#a707028fc52309d5995bba38f7d47a318',1,'AGOpenCVHelper']]],
+  ['savekeypointstofile',['saveKeypointsToFile',['../class_a_g_open_c_v_helper.html#a5b0eef3df0cbd5a1c7d178bde108327d',1,'AGOpenCVHelper']]],
+  ['savematchestofile',['saveMatchesToFile',['../class_a_g_open_c_v_helper.html#ac41c11010bd169161da76ff9a6fa7d3c',1,'AGOpenCVHelper']]],
+  ['searchforpathsinimageusingskeleton',['searchForPathsInImageUsingSkeleton',['../class_a_g_path_detection.html#a25549d2bc0b547a443eb7265c32bec39',1,'AGPathDetection']]],
+  ['selectpointfrompath',['selectPointFromPath',['../class_a_g_mosaic_stitcher.html#a53799451bb0fa90c1629c3ae25262462',1,'AGMosaicStitcher']]],
+  ['setpixelvalueatpointinimage',['setPixelValueAtPointInImage',['../class_a_g_open_c_v_helper.html#ae970905798fc8331529ef578aa2f73ed',1,'AGOpenCVHelper']]],
+  ['showimage',['showImage',['../class_a_g_open_c_v_helper.html#a29728b9ec453bef5b96e24d6a685f844',1,'AGOpenCVHelper']]],
+  ['stitchmosaic',['stitchMosaic',['../class_a_g_mosaic_stitcher.html#a6fbe7d3db004a4c0d904eaa6fa0f0eb9',1,'AGMosaicStitcher']]]
 ];

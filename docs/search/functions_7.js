@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['linearfunctioncoeffsusingpoints',['linearFunctionCoeffsUsingPoints',['../class_a_g_open_c_v_helper.html#a37c5573d3d55e29a7dc1af314eabeff8',1,'AGOpenCVHelper']]],
   ['linktwoimagestogether',['linkTwoImagesTogether',['../class_a_g_open_c_v_helper.html#a0ca1c71274120dd833792008ed226321',1,'AGOpenCVHelper']]],
   ['linktwoimagestogetheranddrawmatches',['linkTwoImagesTogetherAndDrawMatches',['../class_a_g_open_c_v_helper.html#ac20e2bd794b62bbf8b4309c8f589f6d8',1,'AGOpenCVHelper']]],
   ['loadconfigurationfile',['loadConfigurationFile',['../class_a_g_image_loader.html#a43ffaa6c68ebddd5c4319041fb315c09',1,'AGImageLoader']]],

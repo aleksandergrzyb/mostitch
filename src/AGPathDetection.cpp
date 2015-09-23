@@ -3,7 +3,7 @@
 //  Copyright (c) 2015 Aleksander Grzyb. All rights reserved.
 //
 
-#include "AGImagePreprocessing.h"
+#include "AGPathDetection.h"
 
 #include <algorithm>
 
@@ -13,7 +13,7 @@ using namespace cv;
 #pragma mark -
 #pragma mark Initialization
 
-AGImagePreprocessing::AGImagePreprocessing(const AGParameters &parameters)
+AGPathDetection::AGPathDetection(const AGParameters &parameters)
 {
     this->parameters = parameters;
 }
@@ -34,7 +34,7 @@ bool pathSortFunction(Point point1, Point point2)
 #pragma mark -
 #pragma mark Starting Point
 
-void AGImagePreprocessing::detectPaths(cv::vector<cv::vector<AGImage>> &imagesMatrix)
+void AGPathDetection::detectPaths(cv::vector<cv::vector<AGImage>> &imagesMatrix)
 {
     this->testingMode = false;
 //    this->testSelectedImage(imagesMatrix[1][0]);
@@ -49,7 +49,7 @@ void AGImagePreprocessing::detectPaths(cv::vector<cv::vector<AGImage>> &imagesMa
     }
 }
 
-void AGImagePreprocessing::prepareForPathDetecting(Mat &input, Mat &output)
+void AGPathDetection::prepareForPathDetecting(Mat &input, Mat &output)
 {
     this->performMorphology(input, output);
     this->createSkeleton(output, output);
@@ -58,7 +58,7 @@ void AGImagePreprocessing::prepareForPathDetecting(Mat &input, Mat &output)
 #pragma mark -
 #pragma mark Morphology
 
-void AGImagePreprocessing::performMorphology(cv::Mat &input, cv::Mat &output)
+void AGPathDetection::performMorphology(cv::Mat &input, cv::Mat &output)
 {
     threshold(input, output, 180, 255, THRESH_BINARY);
     Mat element = getStructuringElement(MORPH_RECT, Size(3, 3));
@@ -70,30 +70,22 @@ void AGImagePreprocessing::performMorphology(cv::Mat &input, cv::Mat &output)
 #pragma mark -
 #pragma mark Finding Skeleton
 
-void AGImagePreprocessing::createSkeleton(cv::Mat &input, cv::Mat &output)
+void AGPathDetection::createSkeleton(cv::Mat &input, cv::Mat &output)
 {
     Mat skeleton(input.size(), CV_8UC1, Scalar(0));
     Mat temp(input.size(), CV_8UC1);
     Mat element = getStructuringElement(MORPH_CROSS, Size(3, 3));
     bool done = false;
-    int iterator = 0;
     while (!done) {
         AGError error;
-//        AGOpenCVHelper::saveImage(input, to_string(iterator) + "_input_before", this->parameters.mosaicsSaveAbsolutePath, error);
         morphologyEx(input, temp, MORPH_OPEN, element);
-//        AGOpenCVHelper::saveImage(temp, to_string(iterator) + "_temp_after_open", this->parameters.mosaicsSaveAbsolutePath, error);
         bitwise_not(temp, temp);
-//        AGOpenCVHelper::saveImage(temp, to_string(iterator) + "_temp_after_not", this->parameters.mosaicsSaveAbsolutePath, error);
         bitwise_and(input, temp, temp);
-//        AGOpenCVHelper::saveImage(temp, to_string(iterator) + "_temp_after_and", this->parameters.mosaicsSaveAbsolutePath, error);
         bitwise_or(skeleton, temp, skeleton);
-//        AGOpenCVHelper::saveImage(skeleton, to_string(iterator) + "_skeleton_after_or", this->parameters.mosaicsSaveAbsolutePath, error);
         erode(input, input, element);
         double max;
-//        AGOpenCVHelper::saveImage(input, to_string(iterator) + "_input_after_erode", this->parameters.mosaicsSaveAbsolutePath, error);
         minMaxLoc(input, 0, &max);
         done = (max == 0);
-        ++iterator;
     };
     output = skeleton;
 }
@@ -101,14 +93,20 @@ void AGImagePreprocessing::createSkeleton(cv::Mat &input, cv::Mat &output)
 #pragma mark -
 #pragma mark Paths Searching
 
-void AGImagePreprocessing::searchForPathsInImageUsingSkeleton(AGImage &image, cv::Mat &skeleton)
+void AGPathDetection::searchForPathsInImageUsingSkeleton(AGImage &image, cv::Mat &skeleton)
 {
     // Finding all whites pixels in every edge of skeleton
     vector<Point> whitePixels;
     this->findWhitePixelsInSkeleton(skeleton, whitePixels);
 
     vector<Point> topWhitePixels, bottomWhitePixels, leftWhitePixels, rightWhitePixels;
-    this->categorizeWhitePixels(whitePixels, topWhitePixels, bottomWhitePixels, leftWhitePixels, rightWhitePixels, skeleton.cols, skeleton.rows);
+    this->categorizeWhitePixels(whitePixels,
+                                topWhitePixels,
+                                bottomWhitePixels,
+                                leftWhitePixels,
+                                rightWhitePixels,
+                                skeleton.cols,
+                                skeleton.rows);
 
     // Removing pixels that are next to each other
     if (!whitePixels.empty()) {
@@ -127,7 +125,7 @@ void AGImagePreprocessing::searchForPathsInImageUsingSkeleton(AGImage &image, cv
     this->removePathPointsDuplicates(image);
 }
 
-void AGImagePreprocessing::findWhitePixelsInSkeleton(Mat &skeleton, vector<Point> &whitePixels)
+void AGPathDetection::findWhitePixelsInSkeleton(Mat &skeleton, vector<Point> &whitePixels)
 {
     uchar *pixel = skeleton.ptr<uchar>(FIRST_ROW);
     uchar pixelValue;
@@ -144,8 +142,11 @@ void AGImagePreprocessing::findWhitePixelsInSkeleton(Mat &skeleton, vector<Point
     }
 }
 
-void AGImagePreprocessing::pushBackAdjacentPixelsToPixelInImage(vector<Point> &pixels, Point pixel, Mat &image,
-                                                                PathDirection pathDirection, vector<vector<bool>> &visitedPixels)
+void AGPathDetection::pushBackAdjacentPixelsToPixelInImage(vector<Point> &pixels,
+                                                           Point pixel,
+                                                           Mat &image,
+                                                           AGPathDirection pathDirection,
+                                                           vector<vector<bool>> &visitedPixels)
 {
     vector<pair<int, int>> offsetPoints;
 
@@ -167,16 +168,20 @@ void AGImagePreprocessing::pushBackAdjacentPixelsToPixelInImage(vector<Point> &p
     for (int i = 0; i < numberOfCases; i++) {
         switch (pathDirection) {
             case Down:
-                this->addPixelIfWhiteInImage(pixels, Point(pixel.x + offsetPoints[i].first, pixel.y - offsetPoints[i].second), image, visitedPixels);
+                this->addPixelIfWhiteInImage(pixels, Point(pixel.x + offsetPoints[i].first,
+                                                           pixel.y - offsetPoints[i].second), image, visitedPixels);
                 break;
             case Up:
-                this->addPixelIfWhiteInImage(pixels, Point(pixel.x + offsetPoints[i].first, pixel.y + offsetPoints[i].second), image, visitedPixels);
+                this->addPixelIfWhiteInImage(pixels, Point(pixel.x + offsetPoints[i].first,
+                                                           pixel.y + offsetPoints[i].second), image, visitedPixels);
                 break;
             case Right:
-                this->addPixelIfWhiteInImage(pixels, Point(pixel.x - offsetPoints[i].second, pixel.y + offsetPoints[i].first), image, visitedPixels);
+                this->addPixelIfWhiteInImage(pixels, Point(pixel.x - offsetPoints[i].second,
+                                                           pixel.y + offsetPoints[i].first), image, visitedPixels);
                 break;
             case Left:
-                this->addPixelIfWhiteInImage(pixels, Point(pixel.x + offsetPoints[i].second, pixel.y + offsetPoints[i].first), image, visitedPixels);
+                this->addPixelIfWhiteInImage(pixels, Point(pixel.x + offsetPoints[i].second,
+                                                           pixel.y + offsetPoints[i].first), image, visitedPixels);
                 break;
         }
     }
@@ -185,7 +190,7 @@ void AGImagePreprocessing::pushBackAdjacentPixelsToPixelInImage(vector<Point> &p
 #pragma mark -
 #pragma mark Cleaning
 
-void AGImagePreprocessing::removePathPointsDuplicates(AGImage &image)
+void AGPathDetection::removePathPointsDuplicates(AGImage &image)
 {
     if (image.pathPoints.size() < 2) {
         return;
@@ -209,7 +214,10 @@ void AGImagePreprocessing::removePathPointsDuplicates(AGImage &image)
 #pragma mark -
 #pragma mark White Pixels
 
-void AGImagePreprocessing::addPixelIfWhiteInImage(vector<Point> &pixels, Point pixel, Mat &image, vector<vector<bool>> &visitedPixels)
+void AGPathDetection::addPixelIfWhiteInImage(vector<Point> &pixels,
+                                             Point pixel,
+                                             Mat &image,
+                                             vector<vector<bool>> &visitedPixels)
 {
     if (pixel.x >= 0 && pixel.x < image.cols && pixel.y >= 0 && pixel.y < image.rows) {
         AGError error;
@@ -219,7 +227,12 @@ void AGImagePreprocessing::addPixelIfWhiteInImage(vector<Point> &pixels, Point p
     }
 }
 
-void AGImagePreprocessing::categorizeWhitePixels(vector<Point> &whitePixels, vector<Point> &topWhitePixels, vector<Point> &bottomWhitePixels, vector<Point> &leftWhitePixels, vector<Point> &rightWhitePixels, int imageWidth, int imageHeight)
+void AGPathDetection::categorizeWhitePixels(vector<Point> &whitePixels,
+                                            vector<Point> &topWhitePixels,
+                                            vector<Point> &bottomWhitePixels,
+                                            vector<Point> &leftWhitePixels,
+                                            vector<Point> &rightWhitePixels,
+                                            int imageWidth, int imageHeight)
 {
     for (int i = 0; i < whitePixels.size(); i++) {
         Point whitePixel = whitePixels[i];
@@ -238,7 +251,8 @@ void AGImagePreprocessing::categorizeWhitePixels(vector<Point> &whitePixels, vec
     }
 }
 
-void AGImagePreprocessing::removeNeighbourWhitePixels(vector<Point> &whitePixels, PathDirection pathDirection)
+void AGPathDetection::removeNeighbourWhitePixels(vector<Point> &whitePixels,
+                                                 AGPathDirection pathDirection)
 {
     if (whitePixels.empty()) {
         return;
@@ -271,7 +285,10 @@ void AGImagePreprocessing::removeNeighbourWhitePixels(vector<Point> &whitePixels
 #pragma mark -
 #pragma mark Depth First Search
 
-void AGImagePreprocessing::performDFSForPathDirection(AGImage &image, Mat &skeleton, vector<Point> &whitePixels, PathDirection pathDirection)
+void AGPathDetection::performDFSForPathDirection(AGImage &image,
+                                                 Mat &skeleton,
+                                                 vector<Point> &whitePixels,
+                                                 AGPathDirection pathDirection)
 {
     if (whitePixels.empty()) {
         return;
@@ -320,48 +337,27 @@ void AGImagePreprocessing::performDFSForPathDirection(AGImage &image, Mat &skele
     }
 }
 
-void AGImagePreprocessing::resetVisitedPixels(std::vector<std::vector<bool> > &visitedPixels, int width, int height)
+void AGPathDetection::resetVisitedPixels(std::vector<std::vector<bool> > &visitedPixels, int width, int height)
 {
     visitedPixels.clear();
-    for (int x = 0; x < width; x++) {
+    for (int x = 0; x < width; ++x) {
         vector<bool> heightPixels;
-        for (int y = 0; y < height; y++) {
+        for (int y = 0; y < height; ++y) {
             heightPixels.push_back(false);
         }
         visitedPixels.push_back(heightPixels);
     }
 }
 
-void AGImagePreprocessing::markVisitedPixels(vector<vector<bool>> &visitedPixels, MarkingVisitedPixelsMode markingVisitedPixelsMode, int rowOrColumnCor)
-{
-    if (rowOrColumnCor < 0 || rowOrColumnCor > visitedPixels.size() || rowOrColumnCor > visitedPixels.front().size()) {
-        return;
-    }
-
-    switch (markingVisitedPixelsMode) {
-        case Column:
-            for (int y = 0; y < visitedPixels.front().size(); y++) {
-                visitedPixels[rowOrColumnCor][y] = true;
-            }
-            break;
-
-        case Row:
-            for (int x = 0; x < visitedPixels.size(); x++) {
-                visitedPixels[x][rowOrColumnCor] = true;
-            }
-            break;
-    }
-}
-
 #pragma mark -
 #pragma mark Testing
 
-void AGImagePreprocessing::testDetectedPathsInImage(AGImage &image)
+void AGPathDetection::testDetectedPathsInImage(AGImage &image)
 {
     static int iterator = 0;
     Mat testImage = image.image.clone();
     AGOpenCVHelper::convertImageToColor(testImage);
-    for (int i = 0; i < image.pathPoints.size(); i++) {
+    for (int i = 0; i < image.pathPoints.size(); ++i) {
         Rect testImageRect(Point(), testImage.size());
         for (int x = -2; x < 3; ++x) {
             for (int y = -2; y < 3; ++y) {
@@ -386,7 +382,7 @@ void AGImagePreprocessing::testDetectedPathsInImage(AGImage &image)
 //    AGOpenCVHelper::saveImage(testImage, imageName, this->parameters.mosaicsSaveAbsolutePath, error);
 }
 
-void AGImagePreprocessing::testSaveCurrentDFS(vector<Point> &pixels, vector<vector<bool>> &visitedPixels, Mat &image)
+void AGPathDetection::testSaveCurrentDFS(vector<Point> &pixels, vector<vector<bool>> &visitedPixels, Mat &image)
 {
     Mat testImage = image.clone();
     AGOpenCVHelper::convertImageToColor(testImage);
@@ -412,7 +408,7 @@ void AGImagePreprocessing::testSaveCurrentDFS(vector<Point> &pixels, vector<vect
     AGOpenCVHelper::saveImage(testImage, "DFS", this->parameters.mosaicsSaveAbsolutePath, error);
 }
 
-void AGImagePreprocessing::testSelectedImage(AGImage &image)
+void AGPathDetection::testSelectedImage(AGImage &image)
 {
     Mat skeleton;
     this->prepareForPathDetecting(image.image, skeleton);
@@ -422,12 +418,3 @@ void AGImagePreprocessing::testSelectedImage(AGImage &image)
     this->testDetectedPathsInImage(image);
     this->testingMode = false;
 }
-
-
-
-
-
-
-
-
-

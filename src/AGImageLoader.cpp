@@ -5,8 +5,8 @@
 
 #include "AGImageLoader.h"
 #include "AGOpenCVHelper.h"
-#include "../thirdparty/include/libconfig/libconfig.h++"
 
+#include <libconfig.h++>
 #include <unistd.h>
 #include <sstream>
 
@@ -37,7 +37,8 @@ void AGImageLoader::loadConfigurationFile(const char *configFilePath, AGError &e
     }
     catch(const ParseException &pex) {
         stringstream ss;
-        ss << "loadConfigurationFile: Parse of configuration file error at " << pex.getFile() << ":" << pex.getLine() << " - " << pex.getError();
+        ss << "loadConfigurationFile: Parse of configuration file error at "
+        << pex.getFile() << ":" << pex.getLine() << " - " << pex.getError();
         error = { true, ss.str() }; return;
     }
 
@@ -167,7 +168,7 @@ void AGImageLoader::loadTilesInMosaicNumber(std::vector<std::vector<AGImage>> &t
     xCoordinatePosition += 2;
 
     for (int y = 0; ; ++y) {
-        Mat image = imread(this->getTilePathAtPosition(0, y, mosaicNumber), CV_LOAD_IMAGE_GRAYSCALE);
+        Mat image = imread(this->tilePathAtPosition(0, y, mosaicNumber), CV_LOAD_IMAGE_GRAYSCALE);
         if (!image.data) {
             break;
         }
@@ -179,13 +180,17 @@ void AGImageLoader::loadTilesInMosaicNumber(std::vector<std::vector<AGImage>> &t
     
     for (int y = (int)tiles.size() - 1; y >= 0; --y) {
         for (int x = 0; ; ++x) {
-            Mat image = imread(this->getTilePathAtPosition(x, y, mosaicNumber), CV_LOAD_IMAGE_GRAYSCALE);
+            Mat image = imread(this->tilePathAtPosition(x, y, mosaicNumber), CV_LOAD_IMAGE_GRAYSCALE);
             if (!image.data) {
                 break;
             }
             else {
                 AGOpenCVHelper::rotateImage(image, 180);
-                AGImage imageInfo(image, x, (int)tiles.size() - y - 1, image.cols, image.rows, this->getTileNameAtPosition(x, y));
+                AGImage imageInfo(image, x,
+                                  (int)tiles.size() - y - 1,
+                                  image.cols,
+                                  image.rows,
+                                  this->tileNameAtPosition(x, y));
                 tiles[x].push_back(imageInfo);
             }
         }
@@ -195,7 +200,7 @@ void AGImageLoader::loadTilesInMosaicNumber(std::vector<std::vector<AGImage>> &t
     }
 }
 
-string AGImageLoader::getTilePathAtPosition(int x, int y, int mosaicNumber)
+string AGImageLoader::tilePathAtPosition(int x, int y, int mosaicNumber)
 {
     if (x < 0 || y < 0) {
         return "";
@@ -204,12 +209,12 @@ string AGImageLoader::getTilePathAtPosition(int x, int y, int mosaicNumber)
     string tilePath = this->parameters.mosaicsDirectoryAbsolutePath + "/" + "mosaic_" + to_string(mosaicNumber);
 
     tilePath += "/";
-    tilePath += this->getTileNameAtPosition(x, y);
+    tilePath += this->tileNameAtPosition(x, y);
 
     return tilePath;
 }
 
-string AGImageLoader::getTileNameAtPosition(int x, int y)
+string AGImageLoader::tileNameAtPosition(int x, int y)
 {
     if (x < 0 || y < 0) {
         return "";
@@ -231,8 +236,3 @@ string AGImageLoader::getTileNameAtPosition(int x, int y)
 
     return tileName;
 }
-
-
-
-
-

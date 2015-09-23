@@ -3,13 +3,10 @@
 //  Copyright (c) 2015 Aleksander Grzyb. All rights reserved.
 //
 
-#include "../thirdparty/include/opencv2/features2d/features2d.hpp"
-#include "../thirdparty/include/opencv2/nonfree/features2d.hpp"
-#include "../thirdparty/include/opencv2/video/tracking.hpp"
-#include "../thirdparty/include/opencv2/calib3d/calib3d.hpp"
 #include "AGMosaicStitcher.h"
 #include "AGImageBlender.h"
 
+#include <opencv2/nonfree/features2d.hpp>
 #include <cmath>
 #include <map>
 
@@ -23,7 +20,7 @@ using namespace detail;
 AGMosaicStitcher::AGMosaicStitcher(const AGParameters &parameters)
 {
     this->parameters = parameters;
-    this->imagePreprocessing = new AGImagePreprocessing(parameters);
+    this->pathDetection = new AGPathDetection(parameters);
 }
 
 void AGMosaicStitcher::initTransformsMatrix(int xSize, int ySize)
@@ -38,11 +35,12 @@ void AGMosaicStitcher::initTransformsMatrix(int xSize, int ySize)
     }
 }
 
-void AGMosaicStitcher::initMaskInImagesMatrix(std::vector<std::vector<AGImage>> &imagesMatrix)
+void AGMosaicStitcher::initMaskInImagesMatrix(vector<vector<AGImage>> &imagesMatrix)
 {
     for (int x = 0; x < imagesMatrix.size(); x++) {
         for (int y = 0; y < imagesMatrix.front().size(); y++) {
-            imagesMatrix[x][y].mask = Mat::ones(imagesMatrix[x][y].image.rows, imagesMatrix[x][y].image.cols, CV_8UC1) * 255;
+            imagesMatrix[x][y].mask = Mat::ones(imagesMatrix[x][y].image.rows,
+                                                imagesMatrix[x][y].image.cols, CV_8UC1) * 255;
         }
     }
 }
@@ -65,9 +63,9 @@ int AGMosaicStitcher::stitchMosaic(vector<vector<AGImage>> &imagesMatrix, Mat &o
     this->testingMode = false;
     this->initTransformsMatrix((int)imagesMatrix.size(), (int)imagesMatrix.front().size());
     this->initMaskInImagesMatrix(imagesMatrix);
-    this->imagePreprocessing->detectPaths(imagesMatrix);
+    this->pathDetection->detectPaths(imagesMatrix);
 
-//    this->testImagePreprocessing(imagesMatrix);
+//    this->testPathDetection(imagesMatrix);
 
     this->performStitching(imagesMatrix, outputImage);
 //    this->testStitchBetweenTwoImages(imagesMatrix[1][8], imagesMatrix[1][7], Up);
@@ -96,43 +94,51 @@ void AGMosaicStitcher::performStitching(vector<vector<AGImage>> &imagesMatrix, M
     if (imagesMatrix.front().size() > imagesMatrix.size()) {
         for (int x = 0; x < midXCoor; x++) {
             imageDirection = Right;
-            this->applyStitchingAlgorithm(imagesMatrix[x][midYCoor], imagesMatrix[x + 1][midYCoor], imageDirection, this->transformsMatrix[x][midYCoor]);
+            this->applyStitchingAlgorithm(imagesMatrix[x][midYCoor], imagesMatrix[x + 1][midYCoor],
+                                          imageDirection, this->transformsMatrix[x][midYCoor]);
         }
 
         for (int x = midXCoor + 1; x < imagesMatrix.size(); x++) {
             imageDirection = Left;
-            this->applyStitchingAlgorithm(imagesMatrix[x][midYCoor], imagesMatrix[x - 1][midYCoor], imageDirection, this->transformsMatrix[x][midYCoor]);
+            this->applyStitchingAlgorithm(imagesMatrix[x][midYCoor], imagesMatrix[x - 1][midYCoor],
+                                          imageDirection, this->transformsMatrix[x][midYCoor]);
         }
 
         for (int x = 0; x < imagesMatrix.size(); x++) {
             for (int y = midYCoor - 1; y >= 0; y--) {
                 imageDirection = Down;
-                this->applyStitchingAlgorithm(imagesMatrix[x][y], imagesMatrix[x][y + 1], imageDirection, this->transformsMatrix[x][y]);
+                this->applyStitchingAlgorithm(imagesMatrix[x][y], imagesMatrix[x][y + 1],
+                                              imageDirection, this->transformsMatrix[x][y]);
             }
             for (int y = midYCoor + 1; y < imagesMatrix.front().size(); y++) {
                 imageDirection = Up;
-                this->applyStitchingAlgorithm(imagesMatrix[x][y], imagesMatrix[x][y - 1], imageDirection, this->transformsMatrix[x][y]);
+                this->applyStitchingAlgorithm(imagesMatrix[x][y], imagesMatrix[x][y - 1],
+                                              imageDirection, this->transformsMatrix[x][y]);
             }
         }
     } else {
         for (int y = 0; y < midYCoor; y++) {
             imageDirection = Down;
-            this->applyStitchingAlgorithm(imagesMatrix[midXCoor][y], imagesMatrix[midXCoor][y + 1], imageDirection, this->transformsMatrix[midXCoor][y]);
+            this->applyStitchingAlgorithm(imagesMatrix[midXCoor][y], imagesMatrix[midXCoor][y + 1],
+                                          imageDirection, this->transformsMatrix[midXCoor][y]);
         }
 
         for (int y = midYCoor + 1; y < imagesMatrix.front().size(); y++) {
             imageDirection = Up;
-            this->applyStitchingAlgorithm(imagesMatrix[midXCoor][y], imagesMatrix[midXCoor][y - 1], imageDirection, this->transformsMatrix[midXCoor][y]);
+            this->applyStitchingAlgorithm(imagesMatrix[midXCoor][y], imagesMatrix[midXCoor][y - 1],
+                                          imageDirection, this->transformsMatrix[midXCoor][y]);
         }
 
         for (int y = 0; y < imagesMatrix.front().size(); y++) {
             for (int x = midXCoor - 1; x >= 0; x--) {
                 imageDirection = Right;
-                this->applyStitchingAlgorithm(imagesMatrix[x][y], imagesMatrix[x + 1][y], imageDirection, this->transformsMatrix[x][y]);
+                this->applyStitchingAlgorithm(imagesMatrix[x][y], imagesMatrix[x + 1][y],
+                                              imageDirection, this->transformsMatrix[x][y]);
             }
             for (int x = midXCoor + 1; x < imagesMatrix.size(); x++) {
                 imageDirection = Left;
-                this->applyStitchingAlgorithm(imagesMatrix[x][y], imagesMatrix[x - 1][y], imageDirection, this->transformsMatrix[x][y]);
+                this->applyStitchingAlgorithm(imagesMatrix[x][y], imagesMatrix[x - 1][y],
+                                              imageDirection, this->transformsMatrix[x][y]);
             }
         }
     }
@@ -158,48 +164,56 @@ void AGMosaicStitcher::performStitching(vector<vector<AGImage>> &imagesMatrix, M
                 if (imagesMatrix.front().size() > imagesMatrix.size()) {
                     if (y > midYCoor) {
                         for (int yTrans = y; yTrans > midYCoor; yTrans--) {
-                            warpAffine(transformedImage, transformedImage, transformsMatrix[x][yTrans], outputImage.size());
+                            warpAffine(transformedImage, transformedImage, transformsMatrix[x][yTrans],
+                                       outputImage.size());
                             warpAffine(mask, mask, transformsMatrix[x][yTrans], outputImage.size());
                         }
                     } else if (y < midYCoor) {
                         for (int yTrans = y; yTrans < midYCoor; yTrans++) {
-                            warpAffine(transformedImage, transformedImage, transformsMatrix[x][yTrans], outputImage.size());
+                            warpAffine(transformedImage, transformedImage, transformsMatrix[x][yTrans],
+                                       outputImage.size());
                             warpAffine(mask, mask, transformsMatrix[x][yTrans], outputImage.size());
                         }
                     }
 
                     if (x > midXCoor) {
                         for (int xTrans = x; xTrans > midXCoor; xTrans--) {
-                            warpAffine(transformedImage, transformedImage, transformsMatrix[xTrans][midYCoor], outputImage.size());
+                            warpAffine(transformedImage, transformedImage, transformsMatrix[xTrans][midYCoor],
+                                       outputImage.size());
                             warpAffine(mask, mask, transformsMatrix[xTrans][midYCoor], outputImage.size());
                         }
                     } else if (x < midXCoor) {
                         for (int xTrans = x; xTrans < midXCoor; xTrans++) {
-                            warpAffine(transformedImage, transformedImage, transformsMatrix[xTrans][midYCoor], outputImage.size());
+                            warpAffine(transformedImage, transformedImage, transformsMatrix[xTrans][midYCoor],
+                                       outputImage.size());
                             warpAffine(mask, mask, transformsMatrix[xTrans][midYCoor], outputImage.size());
                         }
                     }
                 } else {
                     if (x > midXCoor) {
                         for (int xTrans = x; xTrans > midXCoor; xTrans--) {
-                            warpAffine(transformedImage, transformedImage, transformsMatrix[xTrans][y], outputImage.size());
+                            warpAffine(transformedImage, transformedImage, transformsMatrix[xTrans][y],
+                                       outputImage.size());
                             warpAffine(mask, mask, transformsMatrix[xTrans][y], outputImage.size());
                         }
                     } else if (x < midXCoor) {
                         for (int xTrans = x; xTrans < midXCoor; xTrans++) {
-                            warpAffine(transformedImage, transformedImage, transformsMatrix[xTrans][y], outputImage.size());
+                            warpAffine(transformedImage, transformedImage, transformsMatrix[xTrans][y],
+                                       outputImage.size());
                             warpAffine(mask, mask, transformsMatrix[xTrans][y], outputImage.size());
                         }
                     }
 
                     if (y > midYCoor) {
                         for (int yTrans = y; yTrans > midYCoor; yTrans--) {
-                            warpAffine(transformedImage, transformedImage, transformsMatrix[midXCoor][yTrans], outputImage.size());
+                            warpAffine(transformedImage, transformedImage, transformsMatrix[midXCoor][yTrans],
+                                       outputImage.size());
                             warpAffine(mask, mask, transformsMatrix[midXCoor][yTrans], outputImage.size());
                         }
                     } else if (y < midYCoor) {
                         for (int yTrans = y; yTrans < midYCoor; yTrans++) {
-                            warpAffine(transformedImage, transformedImage, transformsMatrix[midXCoor][yTrans], outputImage.size());
+                            warpAffine(transformedImage, transformedImage, transformsMatrix[midXCoor][yTrans],
+                                       outputImage.size());
                             warpAffine(mask, mask, transformsMatrix[midXCoor][yTrans], outputImage.size());
                         }
                     }
@@ -227,7 +241,10 @@ void AGMosaicStitcher::performStitching(vector<vector<AGImage>> &imagesMatrix, M
     }
 }
 
-void AGMosaicStitcher::applyStitchingAlgorithm(AGImage &imageOne, AGImage &imageTwo, ImageDirection imageDirection, Mat &transform)
+void AGMosaicStitcher::applyStitchingAlgorithm(AGImage &imageOne,
+                                               AGImage &imageTwo,
+                                               ImageDirection imageDirection,
+                                               Mat &transform)
 {
     vector<DMatch> filtredMatches;
     if (this->parameters.isAdHoc) {
@@ -350,7 +367,6 @@ void AGMosaicStitcher::applyStitchingAlgorithm(AGImage &imageOne, AGImage &image
 //        AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(imageOne, imageTwo, filtredMatches, mat, imageDirection);
 //        AGOpenCVHelper::saveImage(mat, "image");
 
-
         vector<KeyPoint> shiftedKeyPoints;
         for (int i = 0; i <= imageOne.keypoints.size(); i++) {
             KeyPoint shiftedKeyPoint = imageOne.keypoints[i];
@@ -432,16 +448,26 @@ void AGMosaicStitcher::findMatchesWithBruteForce(vector<ImageFeatures> &imagesFe
 #pragma mark -
 #pragma mark Matches Filtering
 
-void AGMosaicStitcher::filterMatches(AGImage &imageOne, AGImage &imageTwo, std::vector<cv::DMatch> &matches, std::vector<cv::DMatch> &filtredMatches, ImageDirection imageDirection)
+void AGMosaicStitcher::filterMatches(AGImage &imageOne,
+                                     AGImage &imageTwo,
+                                     vector<DMatch> &matches,
+                                     vector<DMatch> &filtredMatches,
+                                     ImageDirection imageDirection)
 {
-    if (this->parameters.angleParameter < 0 || this->parameters.angleParameter > 90 || matches.empty() || !imageOne.image.data || !imageTwo.image.data) {
+    if (this->parameters.angleParameter < 0 || this->parameters.angleParameter > 90
+        || matches.empty() || !imageOne.image.data || !imageTwo.image.data) {
         return;
     }
     
     AGError error;
     Mat outputImage;
     if (this->testingMode) {
-        AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(imageOne, imageTwo, matches, outputImage, imageDirection, error);
+        AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(imageOne,
+                                                            imageTwo,
+                                                            matches,
+                                                            outputImage,
+                                                            imageDirection,
+                                                            error);
         AGOpenCVHelper::saveImage(outputImage, "no_filtering", this->parameters.mosaicsSaveAbsolutePath, error);
     }
     
@@ -449,7 +475,12 @@ void AGMosaicStitcher::filterMatches(AGImage &imageOne, AGImage &imageTwo, std::
     this->filterMatchesBasedOnPlacement(imageOne, imageTwo, matches, matchesWithinRange, imageDirection);
 
     if (this->testingMode) {
-        AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(imageOne, imageTwo, matchesWithinRange, outputImage, imageDirection, error);
+        AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(imageOne,
+                                                            imageTwo,
+                                                            matchesWithinRange,
+                                                            outputImage,
+                                                            imageDirection,
+                                                            error);
         AGOpenCVHelper::saveImage(outputImage, "after_on_placement", this->parameters.mosaicsSaveAbsolutePath, error);
     }
 
@@ -457,7 +488,12 @@ void AGMosaicStitcher::filterMatches(AGImage &imageOne, AGImage &imageTwo, std::
     this->deleteMatchesFromMultipleKeypointsToMultiple(matchesWithinRange, matchesWithNoRepetitions);
 
     if (this->testingMode) {
-        AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(imageOne, imageTwo, matchesWithNoRepetitions, outputImage, imageDirection, error);
+        AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(imageOne,
+                                                            imageTwo,
+                                                            matchesWithNoRepetitions,
+                                                            outputImage,
+                                                            imageDirection,
+                                                            error);
         AGOpenCVHelper::saveImage(outputImage, "after_repetitions", this->parameters.mosaicsSaveAbsolutePath, error);
     }
 
@@ -465,20 +501,37 @@ void AGMosaicStitcher::filterMatches(AGImage &imageOne, AGImage &imageTwo, std::
     this->filterMatchesUsingRANSAC(imageOne, imageTwo, matchesWithNoRepetitions, matchesAfterRANSAC);
 
     if (this->testingMode) {
-        AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(imageOne, imageTwo, matchesAfterRANSAC, outputImage, imageDirection, error);
+        AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(imageOne,
+                                                            imageTwo, 
+                                                            matchesAfterRANSAC, 
+                                                            outputImage, 
+                                                            imageDirection, 
+                                                            error);
         AGOpenCVHelper::saveImage(outputImage, "after_ransac", this->parameters.mosaicsSaveAbsolutePath, error);
     }
 
     this->filterMatchesBasedOnSlopeAndLength(imageOne, imageTwo, matchesAfterRANSAC, filtredMatches, imageDirection);
     
     if (this->testingMode) {
-        AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(imageOne, imageTwo, filtredMatches, outputImage, imageDirection, error);
-        AGOpenCVHelper::saveImage(outputImage, "after_slope_and_length", this->parameters.mosaicsSaveAbsolutePath, error);
+        AGOpenCVHelper::linkTwoImagesTogetherAndDrawMatches(imageOne, 
+                                                            imageTwo, 
+                                                            filtredMatches, 
+                                                            outputImage, 
+                                                            imageDirection,
+                                                            error);
+        AGOpenCVHelper::saveImage(outputImage,
+                                  "after_slope_and_length", 
+                                  this->parameters.mosaicsSaveAbsolutePath,
+                                  error);
     }
 }
 
 // Calculates angle between matches and x axis, then calculates the median angle of all matches, and deletes that ones that have angle greater than angleParameter
-void AGMosaicStitcher::filterMatchesBasedOnSlopeAndLength(AGImage &imageOne, AGImage &imageTwo, vector<DMatch> &matches, vector<DMatch> &filtredMatches, ImageDirection imageDirection)
+void AGMosaicStitcher::filterMatchesBasedOnSlopeAndLength(AGImage &imageOne,
+                                                          AGImage &imageTwo,
+                                                          vector<DMatch> &matches,
+                                                          vector<DMatch> &filtredMatches,
+                                                          ImageDirection imageDirection)
 {
     if (matches.empty() || imageOne.keypoints.empty() || imageTwo.keypoints.empty()) {
         return;
@@ -499,8 +552,8 @@ void AGMosaicStitcher::filterMatchesBasedOnSlopeAndLength(AGImage &imageOne, AGI
         pointOne.y *= -1;
 
         vector<double> coeff;
-        AGOpenCVHelper::calculateLinearFunctionCoeffsUsingPoints(pointOne, pointTwo, coeff);
-//        lengths.push_back(AGOpenCVHelper::getDistanceBetweenPoints(pointOne, pointTwo));
+        AGOpenCVHelper::linearFunctionCoeffsUsingPoints(pointOne, pointTwo, coeff);
+//        lengths.push_back(AGOpenCVHelper::distanceBetweenPoints(pointOne, pointTwo));
         double angle = atan(coeff[A_COEFF]) * 180 / M_PI;
         if (angle < 0) {
             angle += 180;
@@ -552,7 +605,8 @@ void AGMosaicStitcher::filterMatchesBasedOnSlopeAndLength(AGImage &imageOne, AGI
 
         //        cout << "Median both" << endl;
         for (int i = 0; i < matches.size(); i++) {
-            if (angles[i] > medianAngle - this->parameters.angleParameter && angles[i] < medianAngle + this->parameters.angleParameter) {
+            if (angles[i] > medianAngle - this->parameters.angleParameter
+                && angles[i] < medianAngle + this->parameters.angleParameter) {
 //                if (lengths[i] > medianLength - this->parameters.lengthParameter && lengths[i] < medianLength + this->parameters.lengthParameter) {
                     //                    cout << "Angle " << angles[i] << " Length " << lengths[i] << endl;
                     filtredMatches.push_back(matches[i]);
@@ -569,9 +623,14 @@ void AGMosaicStitcher::filterMatchesBasedOnSlopeAndLength(AGImage &imageOne, AGI
 }
 
 // Filtering matches based on coordinates x or y. The main idea is that images cannot be shifted too far from each other. You can control the allowed shift by error paramter (expressed in percentage)
-void AGMosaicStitcher::filterMatchesBasedOnPlacement(AGImage &imageOne,AGImage &imageTwo, std::vector<cv::DMatch> &matches, std::vector<cv::DMatch> &filtredMatches, ImageDirection imageDirection)
+void AGMosaicStitcher::filterMatchesBasedOnPlacement(AGImage &imageOne,
+                                                     AGImage &imageTwo,
+                                                     vector<DMatch> &matches,
+                                                     vector<DMatch> &filtredMatches,
+                                                     ImageDirection imageDirection)
 {
-    if (matches.empty() || !imageOne.image.data || !imageTwo.image.data || this->parameters.shiftParameter > 1.0 || this->parameters.shiftParameter < 0.0) {
+    if (matches.empty() || !imageOne.image.data || !imageTwo.image.data
+        || this->parameters.shiftParameter > 1.0 || this->parameters.shiftParameter < 0.0) {
         return;
     }
     for (int i = 0; i < matches.size(); i++) {
@@ -592,19 +651,23 @@ void AGMosaicStitcher::filterMatchesBasedOnPlacement(AGImage &imageOne,AGImage &
             double distance = 0.0;
             switch (imageDirection) {
                 case Up:
-                    distance = sqrt(pow(abs(pointTwo.x - pointOne.x), 2.0) + pow(abs((pointOne.y + imageTwo.height) -pointTwo.y), 2.0));
+                    distance = sqrt(pow(abs(pointTwo.x - pointOne.x), 2.0) +
+                                    pow(abs((pointOne.y + imageTwo.height) -pointTwo.y), 2.0));
                     break;
 
                 case Down:
-                    distance = sqrt(pow(abs(pointTwo.x - pointOne.x), 2.0) + pow(abs((pointTwo.y + imageOne.height) - pointOne.y), 2.0));
+                    distance = sqrt(pow(abs(pointTwo.x - pointOne.x), 2.0) +
+                                    pow(abs((pointTwo.y + imageOne.height) - pointOne.y), 2.0));
                     break;
 
                 case Left:
-                    distance = sqrt(pow(abs((pointOne.x + imageTwo.width) - pointTwo.x), 2.0) + pow(abs(pointTwo.y - pointOne.y), 2.0));
+                    distance = sqrt(pow(abs((pointOne.x + imageTwo.width) - pointTwo.x), 2.0) +
+                                    pow(abs(pointTwo.y - pointOne.y), 2.0));
                     break;
 
                 case Right:
-                    distance = sqrt(pow(abs((pointTwo.x + imageOne.width) - pointOne.x), 2.0) + pow(abs(pointTwo.y - pointOne.y), 2.0));
+                    distance = sqrt(pow(abs((pointTwo.x + imageOne.width) - pointOne.x), 2.0) +
+                                    pow(abs(pointTwo.y - pointOne.y), 2.0));
                     break;
             }
             if (distance < imageOne.height * this->parameters.percentOverlap * 2.5) {
@@ -615,7 +678,8 @@ void AGMosaicStitcher::filterMatchesBasedOnPlacement(AGImage &imageOne,AGImage &
 }
 
 // Finding features that were matched to more than one feature and chosing the one with the minimum distance
-void AGMosaicStitcher::deleteMatchesFromMultipleKeypointsToMultiple(vector<DMatch> &matches, vector<DMatch> &filtredMatches)
+void AGMosaicStitcher::deleteMatchesFromMultipleKeypointsToMultiple(vector<DMatch> &matches,
+                                                                    vector<DMatch> &filtredMatches)
 {
     if (matches.empty()) {
         return;
@@ -672,7 +736,10 @@ void AGMosaicStitcher::deleteMatchesFromMultipleKeypointsToMultiple(vector<DMatc
     }
 }
 
-void AGMosaicStitcher::filterMatchesUsingRANSAC(AGImage &imageOne, AGImage &imageTwo, vector<DMatch> &matches, vector<DMatch> &filtredMatches)
+void AGMosaicStitcher::filterMatchesUsingRANSAC(AGImage &imageOne,
+                                                AGImage &imageTwo,
+                                                vector<DMatch> &matches,
+                                                vector<DMatch> &filtredMatches)
 {
     if (matches.empty()) {
 //        cerr << "Couldn't perform RANSAC. Matches vector is empty." << endl;
@@ -705,7 +772,10 @@ void AGMosaicStitcher::filterMatchesUsingRANSAC(AGImage &imageOne, AGImage &imag
 #pragma mark -
 #pragma mark Features Extraction
 
-void AGMosaicStitcher::findFeatures(AGImage &imageOne, AGImage &imageTwo, vector<ImageFeatures> &imagesFeatures, ImageDirection imageDirection)
+void AGMosaicStitcher::findFeatures(AGImage &imageOne,
+                                    AGImage &imageTwo,
+                                    vector<ImageFeatures> &imagesFeatures,
+                                    ImageDirection imageDirection)
 {
     Rect roiImageOne, roiImageTwo;
     ImageFeatures imageOneFeatures, imageTwoFeatures;
@@ -714,21 +784,25 @@ void AGMosaicStitcher::findFeatures(AGImage &imageOne, AGImage &imageTwo, vector
     switch (imageDirection) {
         case Up:
             roiImageOne = Rect(0, 0, imageOne.width, (double)imageOne.height * this->parameters.percentOverlap);
-            roiImageTwo = Rect(0, (double)imageTwo.height * (1.0 - this->parameters.percentOverlap), imageTwo.width, (double)imageTwo.height * this->parameters.percentOverlap);
+            roiImageTwo = Rect(0, (double)imageTwo.height * (1.0 - this->parameters.percentOverlap),
+                               imageTwo.width, (double)imageTwo.height * this->parameters.percentOverlap);
             break;
 
         case Down:
-            roiImageOne = Rect(0, (double)imageOne.height * (1.0 - this->parameters.percentOverlap), imageOne.width, imageOne.height * this->parameters.percentOverlap);
+            roiImageOne = Rect(0, (double)imageOne.height * (1.0 - this->parameters.percentOverlap),
+                               imageOne.width, imageOne.height * this->parameters.percentOverlap);
             roiImageTwo = Rect(0, 0, imageTwo.width, (double)imageTwo.height * this->parameters.percentOverlap);
             break;
 
         case Left:
             roiImageOne = Rect(0, 0, (double)imageTwo.width * this->parameters.percentOverlap, imageTwo.height);
-            roiImageTwo = Rect((double)imageTwo.width * (1.0 - this->parameters.percentOverlap), 0, (double)imageTwo.width * this->parameters.percentOverlap, imageTwo.height);
+            roiImageTwo = Rect((double)imageTwo.width * (1.0 - this->parameters.percentOverlap),
+                               0, (double)imageTwo.width * this->parameters.percentOverlap, imageTwo.height);
             break;
 
         case Right:
-            roiImageOne = Rect((double)imageTwo.width * (1.0 - this->parameters.percentOverlap), 0, (double)imageOne.width * this->parameters.percentOverlap, imageOne.height);
+            roiImageOne = Rect((double)imageTwo.width * (1.0 - this->parameters.percentOverlap),
+                               0, (double)imageOne.width * this->parameters.percentOverlap, imageOne.height);
             roiImageTwo = Rect(0, 0, (double)imageTwo.width * this->parameters.percentOverlap, imageTwo.height);
             break;
     }
@@ -769,7 +843,11 @@ void AGMosaicStitcher::findFeaturesWithSIFT(AGImage &inputImage, ImageFeatures &
 #pragma mark -
 #pragma mark Computing Transform
 
-void AGMosaicStitcher::findTransformBetweenImages(AGImage &imageOne, AGImage &imageTwo, std::vector<cv::DMatch> &matches, cv::Mat &transform, ImageDirection imageDirection)
+void AGMosaicStitcher::findTransformBetweenImages(AGImage &imageOne,
+                                                  AGImage &imageTwo,
+                                                  vector<DMatch> &matches,
+                                                  Mat &transform,
+                                                  ImageDirection imageDirection)
 {
     vector<Point2f> imageOneSelectedKeypoints;
     vector<Point2f> imageTwoSelectedKeypoints;
@@ -838,7 +916,10 @@ void AGMosaicStitcher::findTransformBetweenImages(AGImage &imageOne, AGImage &im
     cout << "2. " << AGOpenCVHelper::getDescriptionOfImage(imageTwo, error) << endl << endl;
 }
 
-bool AGMosaicStitcher::findTransformBasedOnPaths(AGImage &imageOne, AGImage &imageTwo, Mat &transform, ImageDirection imageDirection)
+bool AGMosaicStitcher::findTransformBasedOnPaths(AGImage &imageOne,
+                                                 AGImage &imageTwo,
+                                                 Mat &transform,
+                                                 ImageDirection imageDirection)
 {
     bool transformFound = false;
     if (!imageOne.pathPoints.empty() && !imageTwo.pathPoints.empty()) {
@@ -938,7 +1019,10 @@ bool AGMosaicStitcher::selectPointFromPath(AGImage &image, ImageDirection desire
     return pointSelected;
 }
 
-void AGMosaicStitcher::findShiftTransform(AGImage &imageOne, AGImage &imageTwo, Mat &transform, ImageDirection imageDirection)
+void AGMosaicStitcher::findShiftTransform(AGImage &imageOne,
+                                          AGImage &imageTwo,
+                                          Mat &transform,
+                                          ImageDirection imageDirection)
 {
     switch (imageDirection) {
         case Up:
@@ -959,7 +1043,7 @@ void AGMosaicStitcher::findShiftTransform(AGImage &imageOne, AGImage &imageTwo, 
 #pragma mark -
 #pragma mark Helper Methods
 
-void AGMosaicStitcher::clusterArrayWithinRange(std::vector<double> &array, std::vector<double> &output, double rangeParameter)
+void AGMosaicStitcher::clusterArrayWithinRange(vector<double> &array, vector<double> &output, double rangeParameter)
 {
     vector<double> sortedArray = array;
     sort(sortedArray.begin(), sortedArray.end());
@@ -1066,12 +1150,12 @@ void AGMosaicStitcher::testStitchBetweenTwoImages(AGImage &imageOne, AGImage &im
     AGOpenCVHelper::saveImage(output, windowName.c_str(), this->parameters.mosaicsSaveAbsolutePath, error);
 }
 
-void AGMosaicStitcher::testImagePreprocessing(vector<vector<AGImage>> &imagesMatrix)
+void AGMosaicStitcher::testPathDetection(vector<vector<AGImage>> &imagesMatrix)
 {
     for (int x = 0; x < imagesMatrix.size(); x++) {
         for (int y = 0; y < imagesMatrix.front().size(); y++) {
             Mat outputImage;
-            this->imagePreprocessing->prepareForPathDetecting(imagesMatrix[x][y].image, outputImage);
+            this->pathDetection->prepareForPathDetecting(imagesMatrix[x][y].image, outputImage);
             string imageName = to_string(x) + to_string(y);
             AGError error;
             AGOpenCVHelper::saveImage(outputImage, imageName, this->parameters.mosaicsSaveAbsolutePath, error);

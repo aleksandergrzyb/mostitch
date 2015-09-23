@@ -70,11 +70,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="class_a_g_image_blender-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">AGImageBlender Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Responsible for blending images into one plane.  
+ <a href="class_a_g_image_blender.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_a_g_image_blender_8h_source.html">AGImageBlender.h</a>&gt;</code></p>
 <table class="memberdecls">
@@ -82,12 +86,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af60db748428932ee2a43aab2789937c4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_g_image_blender.html#af60db748428932ee2a43aab2789937c4">blendImages</a> (std::vector&lt; <a class="el" href="struct_a_g_image.html">AGImage</a> &gt; &amp;images, cv::Mat &amp;outputImage, <a class="el" href="struct_a_g_error.html">AGError</a> &amp;error)</td></tr>
 <tr class="separator:af60db748428932ee2a43aab2789937c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
 <tr class="memitem:a964faa4530beaad1504af044942b30bc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_g_image_blender.html#a964faa4530beaad1504af044942b30bc">calculateDistanceTransformOfImage</a> (<a class="el" href="struct_a_g_image.html">AGImage</a> &amp;image, <a class="el" href="struct_a_g_error.html">AGError</a> &amp;error)</td></tr>
 <tr class="separator:a964faa4530beaad1504af044942b30bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_a_g_image_blender_8h_source.html#l00015">15</a> of file <a class="el" href="_a_g_image_blender_8h_source.html">AGImageBlender.h</a>.</p>
+<div class="textblock"><p>Responsible for blending images into one plane. </p>
+
+<p>Definition at line <a class="el" href="_a_g_image_blender_8h_source.html#l00017">17</a> of file <a class="el" href="_a_g_image_blender_8h_source.html">AGImageBlender.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="af60db748428932ee2a43aab2789937c4"></a>
 <div class="memitem">
@@ -126,6 +134,15 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Takes vector of transformed images and blends them into outputImage. Method used for blending is described in master's thesis.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">images</td><td>Vector of transformed images. Images have to be the same size on the same plane. </td></tr>
+    <tr><td class="paramname">outputImage</td><td>The result of blending. </td></tr>
+    <tr><td class="paramname">error</td><td>Return error. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Definition at line <a class="el" href="_a_g_image_blender_8cpp_source.html#l00022">22</a> of file <a class="el" href="_a_g_image_blender_8cpp_source.html">AGImageBlender.cpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
@@ -151,11 +168,11 @@ Static Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">if</span> (isPixelWhite) {</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    <a class="code" href="struct_a_g_error.html">AGError</a> checkErrorDT, checkErrorI;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                    <span class="keywordtype">int</span> weight = <a class="code" href="class_a_g_open_c_v_helper.html#abe5cbd903365e57bf47aff4f2f1f8850">AGOpenCVHelper::getPixelValueAtPointInImage</a>(image.distanceTransform, currentPoint, checkErrorDT);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                    <span class="keywordtype">int</span> weight = <a class="code" href="class_a_g_open_c_v_helper.html#a57650256200c014ea6362a8b0641bfd9">AGOpenCVHelper::pixelValueAtPointInImage</a>(image.distanceTransform, currentPoint, checkErrorDT);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                    <span class="keywordflow">if</span> (checkErrorDT.<a class="code" href="struct_a_g_error.html#a97a68692983743a434471ffac5045abe">isError</a>) {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;blendImages: Error while getting pixel value of distance transform. &quot;</span> + checkError.<a class="code" href="struct_a_g_error.html#a09c05a8a87bf46c7ddfdff97972fd10c">description</a> }; <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    numeratorSum += weight * <a class="code" href="class_a_g_open_c_v_helper.html#abe5cbd903365e57bf47aff4f2f1f8850">AGOpenCVHelper::getPixelValueAtPointInImage</a>(image.image, currentPoint, checkErrorI);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    numeratorSum += weight * <a class="code" href="class_a_g_open_c_v_helper.html#a57650256200c014ea6362a8b0641bfd9">AGOpenCVHelper::pixelValueAtPointInImage</a>(image.image, currentPoint, checkErrorI);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    <span class="keywordflow">if</span> (checkErrorI.<a class="code" href="struct_a_g_error.html#a97a68692983743a434471ffac5045abe">isError</a>) {</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;blendImages: Error while getting pixel value of image. &quot;</span> + checkErrorI.<a class="code" href="struct_a_g_error.html#a09c05a8a87bf46c7ddfdff97972fd10c">description</a> }; <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    }</div>
@@ -173,14 +190,15 @@ Static Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            }</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}<div class="ttc" id="class_a_g_open_c_v_helper_html_ae970905798fc8331529ef578aa2f73ed"><div class="ttname"><a href="class_a_g_open_c_v_helper.html#ae970905798fc8331529ef578aa2f73ed">AGOpenCVHelper::setPixelValueAtPointInImage</a></div><div class="ttdeci">static void setPixelValueAtPointInImage(const cv::Mat &amp;image, const cv::Point &amp;pixelPosition, const int pixelValue, AGError &amp;error)</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_open_c_v_helper_8cpp_source.html#l00116">AGOpenCVHelper.cpp:116</a></div></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="ttc" id="class_a_g_open_c_v_helper_html_ae970905798fc8331529ef578aa2f73ed"><div class="ttname"><a href="class_a_g_open_c_v_helper.html#ae970905798fc8331529ef578aa2f73ed">AGOpenCVHelper::setPixelValueAtPointInImage</a></div><div class="ttdeci">static void setPixelValueAtPointInImage(const cv::Mat &amp;image, const cv::Point &amp;pixelPosition, const int pixelValue, AGError &amp;error)</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_open_c_v_helper_8cpp_source.html#l00118">AGOpenCVHelper.cpp:118</a></div></div>
 <div class="ttc" id="class_a_g_image_blender_html_a964faa4530beaad1504af044942b30bc"><div class="ttname"><a href="class_a_g_image_blender.html#a964faa4530beaad1504af044942b30bc">AGImageBlender::calculateDistanceTransformOfImage</a></div><div class="ttdeci">static void calculateDistanceTransformOfImage(AGImage &amp;image, AGError &amp;error)</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_image_blender_8cpp_source.html#l00011">AGImageBlender.cpp:11</a></div></div>
-<div class="ttc" id="struct_a_g_error_html_a09c05a8a87bf46c7ddfdff97972fd10c"><div class="ttname"><a href="struct_a_g_error.html#a09c05a8a87bf46c7ddfdff97972fd10c">AGError::description</a></div><div class="ttdeci">std::string description</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00036">AGDataStructures.h:36</a></div></div>
-<div class="ttc" id="struct_a_g_error_html_a97a68692983743a434471ffac5045abe"><div class="ttname"><a href="struct_a_g_error.html#a97a68692983743a434471ffac5045abe">AGError::isError</a></div><div class="ttdeci">bool isError</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00035">AGDataStructures.h:35</a></div></div>
-<div class="ttc" id="class_a_g_open_c_v_helper_html_abe5cbd903365e57bf47aff4f2f1f8850"><div class="ttname"><a href="class_a_g_open_c_v_helper.html#abe5cbd903365e57bf47aff4f2f1f8850">AGOpenCVHelper::getPixelValueAtPointInImage</a></div><div class="ttdeci">static int getPixelValueAtPointInImage(const cv::Mat &amp;image, const cv::Point &amp;pixelPosition, AGError &amp;error)</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_open_c_v_helper_8cpp_source.html#l00100">AGOpenCVHelper.cpp:100</a></div></div>
-<div class="ttc" id="class_a_g_open_c_v_helper_html_a9c9cc61bbe7cd9935b9ce1819ff5dee1"><div class="ttname"><a href="class_a_g_open_c_v_helper.html#a9c9cc61bbe7cd9935b9ce1819ff5dee1">AGOpenCVHelper::createEmptyMatWithSize</a></div><div class="ttdeci">static void createEmptyMatWithSize(cv::Mat &amp;image, const cv::Size &amp;size, const int imageType)</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_open_c_v_helper_8cpp_source.html#l00073">AGOpenCVHelper.cpp:73</a></div></div>
-<div class="ttc" id="class_a_g_open_c_v_helper_html_a94b7b86c31b21eee60d0e7404d65a06a"><div class="ttname"><a href="class_a_g_open_c_v_helper.html#a94b7b86c31b21eee60d0e7404d65a06a">AGOpenCVHelper::isPixelWhiteInImage</a></div><div class="ttdeci">static bool isPixelWhiteInImage(cv::Mat &amp;image, const cv::Point &amp;pixelPosition, AGError &amp;error)</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_open_c_v_helper_8cpp_source.html#l00086">AGOpenCVHelper.cpp:86</a></div></div>
-<div class="ttc" id="struct_a_g_error_html"><div class="ttname"><a href="struct_a_g_error.html">AGError</a></div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00034">AGDataStructures.h:34</a></div></div>
+<div class="ttc" id="class_a_g_open_c_v_helper_html_a57650256200c014ea6362a8b0641bfd9"><div class="ttname"><a href="class_a_g_open_c_v_helper.html#a57650256200c014ea6362a8b0641bfd9">AGOpenCVHelper::pixelValueAtPointInImage</a></div><div class="ttdeci">static int pixelValueAtPointInImage(const cv::Mat &amp;image, const cv::Point &amp;pixelPosition, AGError &amp;error)</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_open_c_v_helper_8cpp_source.html#l00102">AGOpenCVHelper.cpp:102</a></div></div>
+<div class="ttc" id="struct_a_g_error_html_a09c05a8a87bf46c7ddfdff97972fd10c"><div class="ttname"><a href="struct_a_g_error.html#a09c05a8a87bf46c7ddfdff97972fd10c">AGError::description</a></div><div class="ttdeci">std::string description</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00053">AGDataStructures.h:53</a></div></div>
+<div class="ttc" id="struct_a_g_error_html_a97a68692983743a434471ffac5045abe"><div class="ttname"><a href="struct_a_g_error.html#a97a68692983743a434471ffac5045abe">AGError::isError</a></div><div class="ttdeci">bool isError</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00048">AGDataStructures.h:48</a></div></div>
+<div class="ttc" id="class_a_g_open_c_v_helper_html_a9c9cc61bbe7cd9935b9ce1819ff5dee1"><div class="ttname"><a href="class_a_g_open_c_v_helper.html#a9c9cc61bbe7cd9935b9ce1819ff5dee1">AGOpenCVHelper::createEmptyMatWithSize</a></div><div class="ttdeci">static void createEmptyMatWithSize(cv::Mat &amp;image, const cv::Size &amp;size, const int imageType)</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_open_c_v_helper_8cpp_source.html#l00075">AGOpenCVHelper.cpp:75</a></div></div>
+<div class="ttc" id="class_a_g_open_c_v_helper_html_a94b7b86c31b21eee60d0e7404d65a06a"><div class="ttname"><a href="class_a_g_open_c_v_helper.html#a94b7b86c31b21eee60d0e7404d65a06a">AGOpenCVHelper::isPixelWhiteInImage</a></div><div class="ttdeci">static bool isPixelWhiteInImage(cv::Mat &amp;image, const cv::Point &amp;pixelPosition, AGError &amp;error)</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_open_c_v_helper_8cpp_source.html#l00088">AGOpenCVHelper.cpp:88</a></div></div>
+<div class="ttc" id="struct_a_g_error_html"><div class="ttname"><a href="struct_a_g_error.html">AGError</a></div><div class="ttdoc">Helper for error handling. Structure is passed with most of the method calls and then used inside tho...</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00043">AGDataStructures.h:43</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -211,10 +229,18 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates distance transform of image. Distance transform is assigned to distanceTransform property of image object.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Input image. </td></tr>
+    <tr><td class="paramname">error</td><td>Return error. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Definition at line <a class="el" href="_a_g_image_blender_8cpp_source.html#l00011">11</a> of file <a class="el" href="_a_g_image_blender_8cpp_source.html">AGImageBlender.cpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
@@ -226,17 +252,13 @@ Static Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_a_g_open_c_v_helper.html#a9c9cc61bbe7cd9935b9ce1819ff5dee1">AGOpenCVHelper::createEmptyMatWithSize</a>(image.<a class="code" href="struct_a_g_image.html#a8108eb3a8493e573364ff71dca88bc2b">distanceTransform</a>, image.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.size(), CV_8U);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    distanceTransform(image.<a class="code" href="struct_a_g_image.html#ac9ed22e1eff7aa72ad3a734ef07afffe">mask</a>, image.<a class="code" href="struct_a_g_image.html#a8108eb3a8493e573364ff71dca88bc2b">distanceTransform</a>, labels, CV_DIST_C, CV_DIST_MASK_5);</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
-<div class="ttc" id="struct_a_g_image_html_a8108eb3a8493e573364ff71dca88bc2b"><div class="ttname"><a href="struct_a_g_image.html#a8108eb3a8493e573364ff71dca88bc2b">AGImage::distanceTransform</a></div><div class="ttdeci">cv::Mat distanceTransform</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00058">AGDataStructures.h:58</a></div></div>
-<div class="ttc" id="class_a_g_open_c_v_helper_html_a9c9cc61bbe7cd9935b9ce1819ff5dee1"><div class="ttname"><a href="class_a_g_open_c_v_helper.html#a9c9cc61bbe7cd9935b9ce1819ff5dee1">AGOpenCVHelper::createEmptyMatWithSize</a></div><div class="ttdeci">static void createEmptyMatWithSize(cv::Mat &amp;image, const cv::Size &amp;size, const int imageType)</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_open_c_v_helper_8cpp_source.html#l00073">AGOpenCVHelper.cpp:73</a></div></div>
-<div class="ttc" id="struct_a_g_image_html_a233a790100289ea6d0fdb1e586647238"><div class="ttname"><a href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">AGImage::image</a></div><div class="ttdeci">cv::Mat image</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00056">AGDataStructures.h:56</a></div></div>
-<div class="ttc" id="struct_a_g_image_html_ac9ed22e1eff7aa72ad3a734ef07afffe"><div class="ttname"><a href="struct_a_g_image.html#ac9ed22e1eff7aa72ad3a734ef07afffe">AGImage::mask</a></div><div class="ttdeci">cv::Mat mask</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00057">AGDataStructures.h:57</a></div></div>
+<div class="ttc" id="struct_a_g_image_html_a8108eb3a8493e573364ff71dca88bc2b"><div class="ttname"><a href="struct_a_g_image.html#a8108eb3a8493e573364ff71dca88bc2b">AGImage::distanceTransform</a></div><div class="ttdeci">cv::Mat distanceTransform</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00168">AGDataStructures.h:168</a></div></div>
+<div class="ttc" id="class_a_g_open_c_v_helper_html_a9c9cc61bbe7cd9935b9ce1819ff5dee1"><div class="ttname"><a href="class_a_g_open_c_v_helper.html#a9c9cc61bbe7cd9935b9ce1819ff5dee1">AGOpenCVHelper::createEmptyMatWithSize</a></div><div class="ttdeci">static void createEmptyMatWithSize(cv::Mat &amp;image, const cv::Size &amp;size, const int imageType)</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_open_c_v_helper_8cpp_source.html#l00075">AGOpenCVHelper.cpp:75</a></div></div>
+<div class="ttc" id="struct_a_g_image_html_a233a790100289ea6d0fdb1e586647238"><div class="ttname"><a href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">AGImage::image</a></div><div class="ttdeci">cv::Mat image</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00158">AGDataStructures.h:158</a></div></div>
+<div class="ttc" id="struct_a_g_image_html_ac9ed22e1eff7aa72ad3a734ef07afffe"><div class="ttname"><a href="struct_a_g_image.html#ac9ed22e1eff7aa72ad3a734ef07afffe">AGImage::mask</a></div><div class="ttdeci">cv::Mat mask</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00163">AGDataStructures.h:163</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>/Users/aleksander.grzyb/Dropbox/studies/studia_magisterskie/praca_magisterska/software/mostitch/src/<a class="el" href="_a_g_image_blender_8h_source.html">AGImageBlender.h</a></li>
-<li>/Users/aleksander.grzyb/Dropbox/studies/studia_magisterskie/praca_magisterska/software/mostitch/src/<a class="el" href="_a_g_image_blender_8cpp_source.html">AGImageBlender.cpp</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

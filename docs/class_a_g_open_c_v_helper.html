@@ -76,6 +76,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Contains helper methods for whole project.  
+ <a href="class_a_g_open_c_v_helper.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_a_g_open_c_v_helper_8h_source.html">AGOpenCVHelper.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -86,18 +89,18 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a6b824cdbd9f31a1390dedaccdd357877"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b54e24530984e1fcc776bdf20ac6540"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_g_open_c_v_helper.html#a7b54e24530984e1fcc776bdf20ac6540">getImageTypeNameUsingImageType</a> (const int imageType, <a class="el" href="struct_a_g_error.html">AGError</a> &amp;error)</td></tr>
 <tr class="separator:a7b54e24530984e1fcc776bdf20ac6540"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad049f6651c88926caa5d1ba8abfaf069"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_g_open_c_v_helper.html#ad049f6651c88926caa5d1ba8abfaf069">calculateLinearFunctionCoeffsUsingPoints</a> (const cv::Point &amp;pointOne, const cv::Point &amp;pointTwo, std::vector&lt; double &gt; &amp;coeffs)</td></tr>
-<tr class="separator:ad049f6651c88926caa5d1ba8abfaf069"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a868701ea4943fffdd206835a450f4eb2"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_g_open_c_v_helper.html#a868701ea4943fffdd206835a450f4eb2">getDistanceBetweenPoints</a> (const cv::Point &amp;pointOne, const cv::Point &amp;pointTwo)</td></tr>
-<tr class="separator:a868701ea4943fffdd206835a450f4eb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37c5573d3d55e29a7dc1af314eabeff8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_g_open_c_v_helper.html#a37c5573d3d55e29a7dc1af314eabeff8">linearFunctionCoeffsUsingPoints</a> (const cv::Point &amp;pointOne, const cv::Point &amp;pointTwo, std::vector&lt; double &gt; &amp;coeffs)</td></tr>
+<tr class="separator:a37c5573d3d55e29a7dc1af314eabeff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6927503b1d76f6767eeceda5ceed587"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_g_open_c_v_helper.html#ad6927503b1d76f6767eeceda5ceed587">distanceBetweenPoints</a> (const cv::Point &amp;pointOne, const cv::Point &amp;pointTwo)</td></tr>
+<tr class="separator:ad6927503b1d76f6767eeceda5ceed587"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c9cc61bbe7cd9935b9ce1819ff5dee1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_g_open_c_v_helper.html#a9c9cc61bbe7cd9935b9ce1819ff5dee1">createEmptyMatWithSize</a> (cv::Mat &amp;image, const cv::Size &amp;size, const int imageType)</td></tr>
 <tr class="separator:a9c9cc61bbe7cd9935b9ce1819ff5dee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f6cc0a1506483257ccc5759b285a0aa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_g_open_c_v_helper.html#a3f6cc0a1506483257ccc5759b285a0aa">createMaskMatWithSize</a> (cv::Mat &amp;image, const cv::Size &amp;size)</td></tr>
 <tr class="separator:a3f6cc0a1506483257ccc5759b285a0aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94b7b86c31b21eee60d0e7404d65a06a"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_g_open_c_v_helper.html#a94b7b86c31b21eee60d0e7404d65a06a">isPixelWhiteInImage</a> (cv::Mat &amp;image, const cv::Point &amp;pixelPosition, <a class="el" href="struct_a_g_error.html">AGError</a> &amp;error)</td></tr>
 <tr class="separator:a94b7b86c31b21eee60d0e7404d65a06a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe5cbd903365e57bf47aff4f2f1f8850"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_g_open_c_v_helper.html#abe5cbd903365e57bf47aff4f2f1f8850">getPixelValueAtPointInImage</a> (const cv::Mat &amp;image, const cv::Point &amp;pixelPosition, <a class="el" href="struct_a_g_error.html">AGError</a> &amp;error)</td></tr>
-<tr class="separator:abe5cbd903365e57bf47aff4f2f1f8850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57650256200c014ea6362a8b0641bfd9"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_g_open_c_v_helper.html#a57650256200c014ea6362a8b0641bfd9">pixelValueAtPointInImage</a> (const cv::Mat &amp;image, const cv::Point &amp;pixelPosition, <a class="el" href="struct_a_g_error.html">AGError</a> &amp;error)</td></tr>
+<tr class="separator:a57650256200c014ea6362a8b0641bfd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae970905798fc8331529ef578aa2f73ed"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_g_open_c_v_helper.html#ae970905798fc8331529ef578aa2f73ed">setPixelValueAtPointInImage</a> (const cv::Mat &amp;image, const cv::Point &amp;pixelPosition, const int pixelValue, <a class="el" href="struct_a_g_error.html">AGError</a> &amp;error)</td></tr>
 <tr class="separator:ae970905798fc8331529ef578aa2f73ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af719bdffb667f542f0ffbbe3c0ec159d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_g_open_c_v_helper.html#af719bdffb667f542f0ffbbe3c0ec159d">createShiftMatrix</a> (cv::Mat &amp;shiftMatrix, const double dx, const double dy)</td></tr>
@@ -124,62 +127,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a331ca33a888e7e4b25bd6e5f5771e7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8h_source.html#l00017">17</a> of file <a class="el" href="_a_g_open_c_v_helper_8h_source.html">AGOpenCVHelper.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad049f6651c88926caa5d1ba8abfaf069"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void AGOpenCVHelper::calculateLinearFunctionCoeffsUsingPoints </td>
-          <td>(</td>
-          <td class="paramtype">const cv::Point &amp;&#160;</td>
-          <td class="paramname"><em>pointOne</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const cv::Point &amp;&#160;</td>
-          <td class="paramname"><em>pointTwo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname"><em>coeffs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<div class="textblock"><p>Contains helper methods for whole project. </p>
 
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00053">53</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span> (pointTwo.x == pointOne.x) {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        coeffs.push_back(0.00);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        coeffs.push_back(0.00);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">double</span> aCoeff = (double)(pointTwo.y - pointOne.y) / (double)(pointTwo.x - pointOne.x);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">double</span> bCoeff = (double)(pointOne.y) - aCoeff * (double)(pointOne.x);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    coeffs.push_back(aCoeff);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    coeffs.push_back(bCoeff);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
-</div><!-- fragment -->
-</div>
-</div>
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8h_source.html#l00019">19</a> of file <a class="el" href="_a_g_open_c_v_helper_8h_source.html">AGOpenCVHelper.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a3092a92d5d40dc424f9ea3531ab9bc90"></a>
 <div class="memitem">
 <div class="memproto">
@@ -201,6 +152,13 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Converts image to color.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Input/Output image. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00016">16</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
@@ -230,6 +188,13 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Converts image to grayscale.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Input/Output image. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00021">21</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
@@ -275,11 +240,20 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Creates empty Mat object with given size and type.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Output image. </td></tr>
+    <tr><td class="paramname">size</td><td>Size of desired image. </td></tr>
+    <tr><td class="paramname">imageType</td><td>Type of desired image. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00073">73</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    image = Mat::zeros(size.height, size.width, imageType);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00075">75</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    image = Mat::zeros(size.height, size.width, imageType);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -314,12 +288,20 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Creates white rectangle (image mask) with given size.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Output image. </td></tr>
+    <tr><td class="paramname">size</td><td>Size of desired mask. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00078">78</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    image = Mat::ones(size.height, size.width, CV_8U);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    image = Scalar(WHITE_PIXEL);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00080">80</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    image = Mat::ones(size.height, size.width, CV_8U);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    image = Scalar(WHITE_PIXEL);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -360,11 +342,68 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Creates shif matrix with given parameters.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shiftMatrix</td><td>Output shift matrix. </td></tr>
+    <tr><td class="paramname">dx</td><td>Translation in x axis. </td></tr>
+    <tr><td class="paramname">dy</td><td>Translation in y axis. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00132">132</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;{</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    shiftMatrix = (Mat_&lt;double&gt;(2,3) &lt;&lt; 1, 0, dx, 0, 1, dy);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00137">137</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;{</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    shiftMatrix = (Mat_&lt;double&gt;(2,3) &lt;&lt; 1, 0, dx, 0, 1, dy);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ad6927503b1d76f6767eeceda5ceed587"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double AGOpenCVHelper::distanceBetweenPoints </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Point &amp;&#160;</td>
+          <td class="paramname"><em>pointOne</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const cv::Point &amp;&#160;</td>
+          <td class="paramname"><em>pointTwo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculates distance between two points.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pointOne</td><td>First point. </td></tr>
+    <tr><td class="paramname">pointTwo</td><td>Second point.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Distance between two points. </dd></dl>
+
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00068">68</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">return</span> sqrt(pow(pointOne.x - pointTwo.x, 2.0) + pow(pointOne.y - pointTwo.y, 2.0));</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -399,56 +438,27 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns full description of image.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Image. </td></tr>
+    <tr><td class="paramname">error</td><td>Error.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Description of image. </dd></dl>
 
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00333">333</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;{</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordflow">if</span> (image.<a class="code" href="struct_a_g_image.html#a65b7fe475c052323c04d9b35c8b68fbe">name</a>.empty()) {</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;getDescriptionOfImage: Image name is empty.&quot;</span> }; <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    }</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Image coordinates in mosaic x = &quot;</span> + to_string(image.<a class="code" href="struct_a_g_image.html#a203d6532de0dbb73493b0e3169583b55">xCoordinate</a>) + <span class="stringliteral">&quot; y = &quot;</span> + to_string(image.<a class="code" href="struct_a_g_image.html#a258ff1412a4d8337173beeec6eac3f10">yCoordinate</a>) + <span class="stringliteral">&quot;; Image file name: &quot;</span> + image.<a class="code" href="struct_a_g_image.html#a65b7fe475c052323c04d9b35c8b68fbe">name</a>;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;}</div>
-<div class="ttc" id="struct_a_g_image_html_a65b7fe475c052323c04d9b35c8b68fbe"><div class="ttname"><a href="struct_a_g_image.html#a65b7fe475c052323c04d9b35c8b68fbe">AGImage::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00063">AGDataStructures.h:63</a></div></div>
-<div class="ttc" id="struct_a_g_image_html_a258ff1412a4d8337173beeec6eac3f10"><div class="ttname"><a href="struct_a_g_image.html#a258ff1412a4d8337173beeec6eac3f10">AGImage::yCoordinate</a></div><div class="ttdeci">int yCoordinate</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00064">AGDataStructures.h:64</a></div></div>
-<div class="ttc" id="struct_a_g_image_html_a203d6532de0dbb73493b0e3169583b55"><div class="ttname"><a href="struct_a_g_image.html#a203d6532de0dbb73493b0e3169583b55">AGImage::xCoordinate</a></div><div class="ttdeci">int xCoordinate</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00062">AGDataStructures.h:62</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a class="anchor" id="a868701ea4943fffdd206835a450f4eb2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double AGOpenCVHelper::getDistanceBetweenPoints </td>
-          <td>(</td>
-          <td class="paramtype">const cv::Point &amp;&#160;</td>
-          <td class="paramname"><em>pointOne</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const cv::Point &amp;&#160;</td>
-          <td class="paramname"><em>pointTwo</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00066">66</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">return</span> sqrt(pow(pointOne.x - pointTwo.x, 2.0) + pow(pointOne.y - pointTwo.y, 2.0));</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00368">368</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;{</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    <span class="keywordflow">if</span> (image.<a class="code" href="struct_a_g_image.html#a65b7fe475c052323c04d9b35c8b68fbe">name</a>.empty()) {</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;getDescriptionOfImage: Image name is empty.&quot;</span> }; <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    }</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Image coordinates in mosaic x = &quot;</span> + to_string(image.<a class="code" href="struct_a_g_image.html#a203d6532de0dbb73493b0e3169583b55">xCoordinate</a>) + <span class="stringliteral">&quot; y = &quot;</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    + to_string(image.<a class="code" href="struct_a_g_image.html#a258ff1412a4d8337173beeec6eac3f10">yCoordinate</a>) + <span class="stringliteral">&quot;; Image file name: &quot;</span> + image.<a class="code" href="struct_a_g_image.html#a65b7fe475c052323c04d9b35c8b68fbe">name</a>;</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;}</div>
+<div class="ttc" id="struct_a_g_image_html_a65b7fe475c052323c04d9b35c8b68fbe"><div class="ttname"><a href="struct_a_g_image.html#a65b7fe475c052323c04d9b35c8b68fbe">AGImage::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00195">AGDataStructures.h:195</a></div></div>
+<div class="ttc" id="struct_a_g_image_html_a258ff1412a4d8337173beeec6eac3f10"><div class="ttname"><a href="struct_a_g_image.html#a258ff1412a4d8337173beeec6eac3f10">AGImage::yCoordinate</a></div><div class="ttdeci">int yCoordinate</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00190">AGDataStructures.h:190</a></div></div>
+<div class="ttc" id="struct_a_g_image_html_a203d6532de0dbb73493b0e3169583b55"><div class="ttname"><a href="struct_a_g_image.html#a203d6532de0dbb73493b0e3169583b55">AGImage::xCoordinate</a></div><div class="ttdeci">int xCoordinate</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00185">AGDataStructures.h:185</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -483,6 +493,15 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Converts image type (as number) to readable string format.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">imageType</td><td>Image type. </td></tr>
+    <tr><td class="paramname">error</td><td>Error.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Image type as string. </dd></dl>
 
 <p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00026">26</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
@@ -508,62 +527,6 @@ Static Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;getImageTypeNameUsingImageType: Unknown image type.&quot;</span> }; <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a class="anchor" id="abe5cbd903365e57bf47aff4f2f1f8850"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int AGOpenCVHelper::getPixelValueAtPointInImage </td>
-          <td>(</td>
-          <td class="paramtype">const cv::Mat &amp;&#160;</td>
-          <td class="paramname"><em>image</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const cv::Point &amp;&#160;</td>
-          <td class="paramname"><em>pixelPosition</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_a_g_error.html">AGError</a> &amp;&#160;</td>
-          <td class="paramname"><em>error</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00100">100</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">if</span> (pixelPosition.x &lt; 0 || pixelPosition.x &gt;= image.size().width) {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;getPixelValueAtPointInImage: Invalid x position.&quot;</span> }; <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">if</span> (pixelPosition.y &lt; 0 || pixelPosition.y &gt;= image.size().height) {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;getPixelValueAtPointInImage: Invalid y position.&quot;</span> }; <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">if</span> (image.type() == CV_32F) {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(image.at&lt;<span class="keywordtype">float</span>&gt;(pixelPosition.y, pixelPosition.x));</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(image.data[image.step * pixelPosition.y + image.channels() * pixelPosition.x + 0]);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    }</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -610,14 +573,24 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Inserts source image into output image at given point (position).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sourceImage</td><td>Image to be inserted. </td></tr>
+    <tr><td class="paramname">outputImage</td><td>Image to which source image will be inserted. </td></tr>
+    <tr><td class="paramname">point</td><td>Postion of insertion. </td></tr>
+    <tr><td class="paramname">error</td><td>Error. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00145">145</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;{</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordflow">if</span> (!sourceImage.data || !outputImage.data) {</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;insertSourceImageIntoOutputImageAtPoint: Couldn&#39;t insert source image into output. Check if images have data.&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    }</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    sourceImage.copyTo(outputImage(Rect(point.x, point.y, sourceImage.cols, sourceImage.rows)));</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;}</div>
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00150">150</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;{</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">if</span> (!sourceImage.data || !outputImage.data) {</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;insertSourceImageIntoOutputImageAtPoint: Couldn&#39;t insert source image into output. Check if images have data.&quot;</span> }; <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    sourceImage.copyTo(outputImage(Rect(point.x, point.y, sourceImage.cols, sourceImage.rows)));</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -658,20 +631,92 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Checks if pixel in given pixel position is white in image.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Image to check. </td></tr>
+    <tr><td class="paramname">pixelPosition</td><td>Pixel position in image. </td></tr>
+    <tr><td class="paramname">error</td><td>Error.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Boolean indicating if pixel is white. </dd></dl>
 
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00086">86</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span> (pixelPosition.x &lt; 0 || pixelPosition.x &gt;= image.size().width) {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;isPixelWhiteInImage: Invalid x position.&quot;</span> }; <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">if</span> (pixelPosition.y &lt; 0 || pixelPosition.y &gt;= image.size().height) {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;isPixelWhiteInImage: Invalid y position.&quot;</span> }; <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">if</span> ((<span class="keywordtype">int</span>)image.data[image.step * pixelPosition.y + image.channels() * pixelPosition.x + 0] == WHITE_PIXEL) {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00088">88</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">if</span> (pixelPosition.x &lt; 0 || pixelPosition.x &gt;= image.size().width) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;isPixelWhiteInImage: Invalid x position.&quot;</span> }; <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span> (pixelPosition.y &lt; 0 || pixelPosition.y &gt;= image.size().height) {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;isPixelWhiteInImage: Invalid y position.&quot;</span> }; <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">if</span> ((<span class="keywordtype">int</span>)image.data[image.step * pixelPosition.y + image.channels() * pixelPosition.x + 0] == WHITE_PIXEL) {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a37c5573d3d55e29a7dc1af314eabeff8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AGOpenCVHelper::linearFunctionCoeffsUsingPoints </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Point &amp;&#160;</td>
+          <td class="paramname"><em>pointOne</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const cv::Point &amp;&#160;</td>
+          <td class="paramname"><em>pointTwo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>coeffs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculates linear function coefficients from two points.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pointOne</td><td>First point. </td></tr>
+    <tr><td class="paramname">pointTwo</td><td>Second point. </td></tr>
+    <tr><td class="paramname">coeffs</td><td>Output vector of two coefficients. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00053">53</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span> (pointTwo.x == pointOne.x) {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        coeffs.push_back(0.00);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        coeffs.push_back(0.00);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">double</span> aCoeff = (double)(pointTwo.y - pointOne.y) / (double)(pointTwo.x - pointOne.x);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">double</span> bCoeff = (double)(pointOne.y) - aCoeff * (double)(pointOne.x);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    coeffs.push_back(aCoeff);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    coeffs.push_back(bCoeff);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -724,51 +769,62 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Inserts two images side by side (vertically or horizontally, specified by image direction) into output image.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">imageOne</td><td>First image. </td></tr>
+    <tr><td class="paramname">imageTwo</td><td>Second image. </td></tr>
+    <tr><td class="paramname">outputImage</td><td>Output image. </td></tr>
+    <tr><td class="paramname">imageDirection</td><td>Specifies if images will be stacked vertically or horizontally. </td></tr>
+    <tr><td class="paramname">error</td><td>Error. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00153">153</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;{</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">if</span> (!imageOne.data || !imageTwo.data) {</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;linkTwoImagesTogether: imageOne or imageTwo has no data.&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordtype">int</span> totalCols = 0;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordtype">int</span> totalRows = 0;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">if</span> (imageDirection == Up || imageDirection == Down) {</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        totalCols = (imageTwo.cols &gt; imageOne.cols) ? imageTwo.cols : imageOne.cols;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        totalRows = imageOne.rows + imageTwo.rows;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    }</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        totalCols = imageOne.cols + imageTwo.cols;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        totalRows = (imageTwo.rows &gt; imageOne.rows) ? imageTwo.rows : imageOne.rows;</div>
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00161">161</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;{</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordflow">if</span> (!imageOne.data || !imageTwo.data) {</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;linkTwoImagesTogether: imageOne or imageTwo has no data.&quot;</span> }; <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    }</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    Mat totalImage(Size(totalCols, totalRows), imageOne.type());</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">switch</span> (imageDirection) {</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keywordflow">case</span> Up:</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            imageTwo.copyTo(totalImage(Rect(0, 0, imageTwo.cols, imageTwo.rows)));</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            imageOne.copyTo(totalImage(Rect(0, imageTwo.rows, imageTwo.cols, imageTwo.rows)));</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="keywordflow">case</span> Down:</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            imageOne.copyTo(totalImage(Rect(0, 0, imageOne.cols, imageOne.rows)));</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            imageTwo.copyTo(totalImage(Rect(0, imageOne.rows, imageTwo.cols, imageTwo.rows)));</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">case</span> Left:</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            imageTwo.copyTo(totalImage(Rect(0, 0, imageOne.cols, imageOne.rows)));</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            imageOne.copyTo(totalImage(Rect(imageOne.cols, 0, imageTwo.cols, imageTwo.rows)));</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">case</span> Right:</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            imageOne.copyTo(totalImage(Rect(0, 0, imageOne.cols, imageOne.rows)));</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            imageTwo.copyTo(totalImage(Rect(imageOne.cols, 0, imageTwo.cols, imageTwo.rows)));</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    }</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    outputImage = totalImage;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;}</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">int</span> totalCols = 0;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordtype">int</span> totalRows = 0;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordflow">if</span> (imageDirection == Up || imageDirection == Down) {</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        totalCols = (imageTwo.cols &gt; imageOne.cols) ? imageTwo.cols : imageOne.cols;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        totalRows = imageOne.rows + imageTwo.rows;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    }</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        totalCols = imageOne.cols + imageTwo.cols;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        totalRows = (imageTwo.rows &gt; imageOne.rows) ? imageTwo.rows : imageOne.rows;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    }</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    Mat totalImage(Size(totalCols, totalRows), imageOne.type());</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordflow">switch</span> (imageDirection) {</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="keywordflow">case</span> Up:</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            imageTwo.copyTo(totalImage(Rect(0, 0, imageTwo.cols, imageTwo.rows)));</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            imageOne.copyTo(totalImage(Rect(0, imageTwo.rows, imageTwo.cols, imageTwo.rows)));</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">case</span> Down:</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            imageOne.copyTo(totalImage(Rect(0, 0, imageOne.cols, imageOne.rows)));</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            imageTwo.copyTo(totalImage(Rect(0, imageOne.rows, imageTwo.cols, imageTwo.rows)));</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">case</span> Left:</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            imageTwo.copyTo(totalImage(Rect(0, 0, imageOne.cols, imageOne.rows)));</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            imageOne.copyTo(totalImage(Rect(imageOne.cols, 0, imageTwo.cols, imageTwo.rows)));</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keywordflow">case</span> Right:</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            imageOne.copyTo(totalImage(Rect(0, 0, imageOne.cols, imageOne.rows)));</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            imageTwo.copyTo(totalImage(Rect(imageOne.cols, 0, imageTwo.cols, imageTwo.rows)));</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    }</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    outputImage = totalImage;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -827,82 +883,101 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Inserts two images side by side (vertically or horizontally, specified by image direction) into output image and draw given matches between them.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">imageOne</td><td>First image. </td></tr>
+    <tr><td class="paramname">imageTwo</td><td>Second image. </td></tr>
+    <tr><td class="paramname">matches</td><td>Matches to draw between images. </td></tr>
+    <tr><td class="paramname">outputImage</td><td>Output image. </td></tr>
+    <tr><td class="paramname">imageDirection</td><td>Specifies if images will be stacked vertically or horizontally. </td></tr>
+    <tr><td class="paramname">error</td><td>Error. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00198">198</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;{</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">if</span> (!imageOne.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.data || !imageTwo.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.data) {</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;linkTwoImagesTogetherAndDrawMatches: imageOne or imageTwo has no data.&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    }</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    </div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordflow">if</span> (imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>.empty() || imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>.empty()) {</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;linkTwoImagesTogetherAndDrawMatches: imageOne.keypoints or imageTwo.keypoints are empty.&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    }</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    </div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    Mat first = imageOne.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.clone();</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    Mat second = imageTwo.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.clone();</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keywordflow">if</span> (imageOne.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.type() == CV_8UC1 &amp;&amp; imageTwo.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.type() == CV_8UC1) {</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <a class="code" href="class_a_g_open_c_v_helper.html#a3092a92d5d40dc424f9ea3531ab9bc90">AGOpenCVHelper::convertImageToColor</a>(first);</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <a class="code" href="class_a_g_open_c_v_helper.html#a3092a92d5d40dc424f9ea3531ab9bc90">AGOpenCVHelper::convertImageToColor</a>(second);</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    }</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (imageOne.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.type() == CV_8UC4 &amp;&amp; imageTwo.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.type() == CV_8UC4) {</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        cvtColor(first, first, CV_RGBA2BGR);</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        cvtColor(second, second, CV_RGBA2BGR);</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    }</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>.size(); i++) {</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        circle(first, imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[i].pt, 3, Scalar(255, 0, 0));</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    }</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>.size(); i++) {</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        circle(second, imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[i].pt, 3, Scalar(0, 255, 0));</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    }</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <a class="code" href="struct_a_g_error.html">AGError</a> checkError = {<span class="keyword">false</span>, <span class="stringliteral">&quot;&quot;</span>};</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <a class="code" href="class_a_g_open_c_v_helper.html#a0ca1c71274120dd833792008ed226321">AGOpenCVHelper::linkTwoImagesTogether</a>(first, second, outputImage, imageDirection, checkError);</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">if</span> (checkError.<a class="code" href="struct_a_g_error.html#a97a68692983743a434471ffac5045abe">isError</a>) {</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;linkTwoImagesTogetherAndDrawMatches: drawMatches method failed inside with error: &quot;</span> + checkError.<a class="code" href="struct_a_g_error.html#a09c05a8a87bf46c7ddfdff97972fd10c">description</a> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    }</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    </div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordflow">switch</span> (imageDirection) {</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keywordflow">case</span> Up:</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; matches.size(); i++) {</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                Point pointTwo = imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].trainIdx].pt;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                Point pointOne(imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].queryIdx].pt.x, imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].queryIdx].pt.y + imageTwo.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.rows);</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                line(outputImage, pointOne, pointTwo, Scalar(0, 0, 255));</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            }</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="keywordflow">case</span> Down:</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; matches.size(); i++) {</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                Point pointOne = imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].queryIdx].pt;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                Point pointTwo(imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].trainIdx].pt.x, imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].trainIdx].pt.y + imageOne.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.rows);</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                line(outputImage, pointOne, pointTwo, Scalar(0, 0, 255));</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            }</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <span class="keywordflow">case</span> Left:</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; matches.size(); i++) {</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                Point pointTwo = imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].trainIdx].pt;</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                Point pointOne(imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].queryIdx].pt.x + imageTwo.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.cols, imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].queryIdx].pt.y);</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                line(outputImage, pointOne, pointTwo, Scalar(0, 0, 255));</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            }</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="keywordflow">case</span> Right:</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; matches.size(); i++) {</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                Point pointOne = imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].queryIdx].pt;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                Point pointTwo(imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].trainIdx].pt.x + imageOne.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.cols, imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].trainIdx].pt.y);</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                line(outputImage, pointOne, pointTwo, Scalar(255, 0, 0));</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;            }</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    }</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;}</div>
-<div class="ttc" id="class_a_g_open_c_v_helper_html_a0ca1c71274120dd833792008ed226321"><div class="ttname"><a href="class_a_g_open_c_v_helper.html#a0ca1c71274120dd833792008ed226321">AGOpenCVHelper::linkTwoImagesTogether</a></div><div class="ttdeci">static void linkTwoImagesTogether(const cv::Mat &amp;imageOne, const cv::Mat &amp;imageTwo, cv::Mat &amp;outputImage, const ImageDirection &amp;imageDirection, AGError &amp;error)</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_open_c_v_helper_8cpp_source.html#l00153">AGOpenCVHelper.cpp:153</a></div></div>
-<div class="ttc" id="struct_a_g_image_html_a3151a762101e8697c4c04de6bb20ff1a"><div class="ttname"><a href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">AGImage::keypoints</a></div><div class="ttdeci">std::vector&lt; cv::KeyPoint &gt; keypoints</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00065">AGDataStructures.h:65</a></div></div>
-<div class="ttc" id="struct_a_g_error_html_a09c05a8a87bf46c7ddfdff97972fd10c"><div class="ttname"><a href="struct_a_g_error.html#a09c05a8a87bf46c7ddfdff97972fd10c">AGError::description</a></div><div class="ttdeci">std::string description</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00036">AGDataStructures.h:36</a></div></div>
-<div class="ttc" id="struct_a_g_error_html_a97a68692983743a434471ffac5045abe"><div class="ttname"><a href="struct_a_g_error.html#a97a68692983743a434471ffac5045abe">AGError::isError</a></div><div class="ttdeci">bool isError</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00035">AGDataStructures.h:35</a></div></div>
-<div class="ttc" id="struct_a_g_image_html_a233a790100289ea6d0fdb1e586647238"><div class="ttname"><a href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">AGImage::image</a></div><div class="ttdeci">cv::Mat image</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00056">AGDataStructures.h:56</a></div></div>
-<div class="ttc" id="struct_a_g_error_html"><div class="ttname"><a href="struct_a_g_error.html">AGError</a></div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00034">AGDataStructures.h:34</a></div></div>
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00210">210</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;{</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordflow">if</span> (!imageOne.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.data || !imageTwo.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.data) {</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;linkTwoImagesTogetherAndDrawMatches: imageOne or imageTwo has no data.&quot;</span> }; <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    }</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">if</span> (imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>.empty() || imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>.empty()) {</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;linkTwoImagesTogetherAndDrawMatches: imageOne.keypoints or imageTwo.keypoints are empty.&quot;</span> };</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    }</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    Mat first = imageOne.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.clone();</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    Mat second = imageTwo.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.clone();</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">if</span> (imageOne.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.type() == CV_8UC1 &amp;&amp; imageTwo.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.type() == CV_8UC1) {</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <a class="code" href="class_a_g_open_c_v_helper.html#a3092a92d5d40dc424f9ea3531ab9bc90">AGOpenCVHelper::convertImageToColor</a>(first);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <a class="code" href="class_a_g_open_c_v_helper.html#a3092a92d5d40dc424f9ea3531ab9bc90">AGOpenCVHelper::convertImageToColor</a>(second);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    }</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (imageOne.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.type() == CV_8UC4 &amp;&amp; imageTwo.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.type() == CV_8UC4) {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        cvtColor(first, first, CV_RGBA2BGR);</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        cvtColor(second, second, CV_RGBA2BGR);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    }</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>.size(); i++) {</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        circle(first, imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[i].pt, 3, Scalar(255, 0, 0));</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    }</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>.size(); i++) {</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        circle(second, imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[i].pt, 3, Scalar(0, 255, 0));</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    }</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <a class="code" href="struct_a_g_error.html">AGError</a> checkError = {<span class="keyword">false</span>, <span class="stringliteral">&quot;&quot;</span>};</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <a class="code" href="class_a_g_open_c_v_helper.html#a0ca1c71274120dd833792008ed226321">AGOpenCVHelper::linkTwoImagesTogether</a>(first, second, outputImage, imageDirection, checkError);</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordflow">if</span> (checkError.<a class="code" href="struct_a_g_error.html#a97a68692983743a434471ffac5045abe">isError</a>) {</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;linkTwoImagesTogetherAndDrawMatches: drawMatches method failed inside with error: &quot;</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            + checkError.<a class="code" href="struct_a_g_error.html#a09c05a8a87bf46c7ddfdff97972fd10c">description</a> };</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    }</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordflow">switch</span> (imageDirection) {</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="keywordflow">case</span> Up:</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; matches.size(); i++) {</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                Point pointTwo = imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].trainIdx].pt;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                Point pointOne(imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].queryIdx].pt.x,</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                               imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].queryIdx].pt.y + imageTwo.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.rows);</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                line(outputImage, pointOne, pointTwo, Scalar(0, 0, 255));</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            }</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <span class="keywordflow">case</span> Down:</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; matches.size(); i++) {</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                Point pointOne = imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].queryIdx].pt;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                Point pointTwo(imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].trainIdx].pt.x,</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                               imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].trainIdx].pt.y + imageOne.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.rows);</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                line(outputImage, pointOne, pointTwo, Scalar(0, 0, 255));</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            }</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        <span class="keywordflow">case</span> Left:</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; matches.size(); i++) {</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                Point pointTwo = imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].trainIdx].pt;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                Point pointOne(imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].queryIdx].pt.x + imageTwo.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.cols,</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                               imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].queryIdx].pt.y);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                line(outputImage, pointOne, pointTwo, Scalar(0, 0, 255));</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;            }</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <span class="keywordflow">case</span> Right:</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; matches.size(); i++) {</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                Point pointOne = imageOne.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].queryIdx].pt;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                Point pointTwo(imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].trainIdx].pt.x + imageOne.<a class="code" href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">image</a>.cols,</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;                               imageTwo.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[matches[i].trainIdx].pt.y);</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                line(outputImage, pointOne, pointTwo, Scalar(255, 0, 0));</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;            }</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    }</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;}</div>
+<div class="ttc" id="class_a_g_open_c_v_helper_html_a0ca1c71274120dd833792008ed226321"><div class="ttname"><a href="class_a_g_open_c_v_helper.html#a0ca1c71274120dd833792008ed226321">AGOpenCVHelper::linkTwoImagesTogether</a></div><div class="ttdeci">static void linkTwoImagesTogether(const cv::Mat &amp;imageOne, const cv::Mat &amp;imageTwo, cv::Mat &amp;outputImage, const ImageDirection &amp;imageDirection, AGError &amp;error)</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_open_c_v_helper_8cpp_source.html#l00161">AGOpenCVHelper.cpp:161</a></div></div>
+<div class="ttc" id="struct_a_g_image_html_a3151a762101e8697c4c04de6bb20ff1a"><div class="ttname"><a href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">AGImage::keypoints</a></div><div class="ttdeci">std::vector&lt; cv::KeyPoint &gt; keypoints</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00200">AGDataStructures.h:200</a></div></div>
+<div class="ttc" id="struct_a_g_error_html_a09c05a8a87bf46c7ddfdff97972fd10c"><div class="ttname"><a href="struct_a_g_error.html#a09c05a8a87bf46c7ddfdff97972fd10c">AGError::description</a></div><div class="ttdeci">std::string description</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00053">AGDataStructures.h:53</a></div></div>
+<div class="ttc" id="struct_a_g_error_html_a97a68692983743a434471ffac5045abe"><div class="ttname"><a href="struct_a_g_error.html#a97a68692983743a434471ffac5045abe">AGError::isError</a></div><div class="ttdeci">bool isError</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00048">AGDataStructures.h:48</a></div></div>
+<div class="ttc" id="struct_a_g_image_html_a233a790100289ea6d0fdb1e586647238"><div class="ttname"><a href="struct_a_g_image.html#a233a790100289ea6d0fdb1e586647238">AGImage::image</a></div><div class="ttdeci">cv::Mat image</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00158">AGDataStructures.h:158</a></div></div>
+<div class="ttc" id="struct_a_g_error_html"><div class="ttname"><a href="struct_a_g_error.html">AGError</a></div><div class="ttdoc">Helper for error handling. Structure is passed with most of the method calls and then used inside tho...</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00043">AGDataStructures.h:43</a></div></div>
 <div class="ttc" id="class_a_g_open_c_v_helper_html_a3092a92d5d40dc424f9ea3531ab9bc90"><div class="ttname"><a href="class_a_g_open_c_v_helper.html#a3092a92d5d40dc424f9ea3531ab9bc90">AGOpenCVHelper::convertImageToColor</a></div><div class="ttdeci">static void convertImageToColor(cv::Mat &amp;image)</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_open_c_v_helper_8cpp_source.html#l00016">AGOpenCVHelper.cpp:16</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -944,17 +1019,92 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Loads image from disc.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Output image. </td></tr>
+    <tr><td class="paramname">loadPath</td><td>Image file path. </td></tr>
+    <tr><td class="paramname">error</td><td>Error. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00341">341</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;{</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keywordflow">if</span> (loadPath.empty()) {</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;loadImage: loadPath is empty.&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    }</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    image = imread(loadPath, CV_LOAD_IMAGE_COLOR);</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keywordflow">if</span>(!image.data) {</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;loadImage: Couldn&#39;t open or find the image.&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    }</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;}</div>
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00377">377</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;{</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keywordflow">if</span> (loadPath.empty()) {</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;loadImage: loadPath is empty.&quot;</span> }; <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    }</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    image = imread(loadPath, CV_LOAD_IMAGE_COLOR);</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <span class="keywordflow">if</span>(!image.data) {</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;loadImage: Couldn&#39;t open or find the image.&quot;</span> }; <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    }</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a57650256200c014ea6362a8b0641bfd9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int AGOpenCVHelper::pixelValueAtPointInImage </td>
+          <td>(</td>
+          <td class="paramtype">const cv::Mat &amp;&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const cv::Point &amp;&#160;</td>
+          <td class="paramname"><em>pixelPosition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_a_g_error.html">AGError</a> &amp;&#160;</td>
+          <td class="paramname"><em>error</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Value of pixel in given pixel position in image.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Image to check. </td></tr>
+    <tr><td class="paramname">pixelPosition</td><td>Pixel position in image. </td></tr>
+    <tr><td class="paramname">error</td><td>Error.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Value of pixel. </dd></dl>
+
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00102">102</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">if</span> (pixelPosition.x &lt; 0 || pixelPosition.x &gt;= image.size().width) {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;pixelValueAtPointInImage: Invalid x position.&quot;</span> }; <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">if</span> (pixelPosition.y &lt; 0 || pixelPosition.y &gt;= image.size().height) {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;pixelValueAtPointInImage: Invalid y position.&quot;</span> }; <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">if</span> (image.type() == CV_32F) {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(image.at&lt;<span class="keywordtype">float</span>&gt;(pixelPosition.y, pixelPosition.x));</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(image.data[image.step * pixelPosition.y + image.channels() * pixelPosition.x + 0]);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -989,14 +1139,22 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Rotates the image by given angle.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Input/Output image. </td></tr>
+    <tr><td class="paramname">angle</td><td>Rotation angle. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00137">137</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;{</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">int</span> len = max(image.cols, image.rows);</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    Point2f pt(len * 0.5, len * 0.5);</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    Mat r = getRotationMatrix2D(pt, angle, 1.0);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    warpAffine(image, image, r, Size(len, len));</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;}</div>
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00142">142</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;{</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">int</span> len = max(image.cols, image.rows);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    Point2f pt(len * 0.5, len * 0.5);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    Mat r = getRotationMatrix2D(pt, angle, 1.0);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    warpAffine(image, image, r, Size(len, len));</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1043,23 +1201,33 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Saves image to disc.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Image to save. </td></tr>
+    <tr><td class="paramname">name</td><td>Name of image file. </td></tr>
+    <tr><td class="paramname">savePath</td><td>Path to save. </td></tr>
+    <tr><td class="paramname">error</td><td>Error. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00270">270</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;{</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordflow">if</span> (imageName.empty() || savePath.empty()) {</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;saveImage: imageName or savePath is empty.&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    }</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordflow">if</span> (!image.data) {</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;saveImage: imageName or savePath is empty.&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    }</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordtype">string</span> path = savePath + <span class="stringliteral">&quot;/&quot;</span> + imageName + <span class="stringliteral">&quot;.png&quot;</span>;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordflow">if</span> (image.type() == CV_8UC4) {</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        cvtColor(image, image, CV_BGRA2BGR);</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    }</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordflow">if</span> (!imwrite(path, image)) {</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;saveImage: Couldn&#39;t write image.&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    }</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;}</div>
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00294">294</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;{</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordflow">if</span> (imageName.empty() || savePath.empty()) {</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;saveImage: imageName or savePath is empty.&quot;</span> }; <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    }</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordflow">if</span> (!image.data) {</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;saveImage: imageName or savePath is empty.&quot;</span> }; <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    }</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keywordtype">string</span> path = savePath + <span class="stringliteral">&quot;/&quot;</span> + imageName + <span class="stringliteral">&quot;.png&quot;</span>;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keywordflow">if</span> (image.type() == CV_8UC4) {</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        cvtColor(image, image, CV_BGRA2BGR);</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    }</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keywordflow">if</span> (!imwrite(path, image)) {</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;saveImage: Couldn&#39;t write image.&quot;</span> }; <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    }</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1106,24 +1274,35 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Saves detected keypoints vector to file.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Image with detected keypoints. </td></tr>
+    <tr><td class="paramname">fileName</td><td>File name to save. </td></tr>
+    <tr><td class="paramname">savePath</td><td>File path to save. </td></tr>
+    <tr><td class="paramname">error</td><td>Error. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00287">287</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;{</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordflow">if</span> (savePath.empty() || fileName.empty()) {</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;saveKeypointsToFile: savePath or fileName is empty&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    }</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keywordflow">if</span> (image.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>.empty()) {</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;saveKeypointsToFile: image.keypoints are empty&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    }</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    ofstream file;</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keywordtype">string</span> path = savePath + <span class="stringliteral">&quot;/&quot;</span> + fileName + <span class="stringliteral">&quot;.txt&quot;</span>;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    file.open(path.c_str());</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; image.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>.size(); i++) {</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        file &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot; x = &quot;</span> &lt;&lt; to_string(image.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[i].pt.x) &lt;&lt; <span class="stringliteral">&quot; y = &quot;</span> &lt;&lt; to_string(image.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[i].pt.y) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    }</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    file.close();</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;}</div>
-<div class="ttc" id="struct_a_g_image_html_a3151a762101e8697c4c04de6bb20ff1a"><div class="ttname"><a href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">AGImage::keypoints</a></div><div class="ttdeci">std::vector&lt; cv::KeyPoint &gt; keypoints</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00065">AGDataStructures.h:65</a></div></div>
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00314">314</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;{</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keywordflow">if</span> (savePath.empty() || fileName.empty()) {</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;saveKeypointsToFile: savePath or fileName is empty&quot;</span> }; <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    }</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keywordflow">if</span> (image.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>.empty()) {</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;saveKeypointsToFile: image.keypoints are empty&quot;</span> }; <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    ofstream file;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keywordtype">string</span> path = savePath + <span class="stringliteral">&quot;/&quot;</span> + fileName + <span class="stringliteral">&quot;.txt&quot;</span>;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    file.open(path.c_str());</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; image.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>.size(); i++) {</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        file &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot; x = &quot;</span> &lt;&lt; to_string(image.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[i].pt.x) &lt;&lt; <span class="stringliteral">&quot; y = &quot;</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        &lt;&lt; to_string(image.<a class="code" href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">keypoints</a>[i].pt.y) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    }</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    file.close();</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;}</div>
+<div class="ttc" id="struct_a_g_image_html_a3151a762101e8697c4c04de6bb20ff1a"><div class="ttname"><a href="struct_a_g_image.html#a3151a762101e8697c4c04de6bb20ff1a">AGImage::keypoints</a></div><div class="ttdeci">std::vector&lt; cv::KeyPoint &gt; keypoints</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00200">AGDataStructures.h:200</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1170,23 +1349,34 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Saves detected matches vector to file.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matches</td><td>Deteceted matches vector. </td></tr>
+    <tr><td class="paramname">fileName</td><td>File name to save. </td></tr>
+    <tr><td class="paramname">savePath</td><td>File path to save. </td></tr>
+    <tr><td class="paramname">error</td><td>Error. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00304">304</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;{</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keywordflow">if</span> (savePath.empty() || fileName.empty()) {</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;saveMatchesToFile: savePath or fileName is empty&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    }</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keywordflow">if</span> (matches.empty()) {</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;saveMatchesToFile: matches are empty&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    }</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    ofstream file;</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="keywordtype">string</span> path = savePath + <span class="stringliteral">&quot;/&quot;</span> + fileName + <span class="stringliteral">&quot;.txt&quot;</span>;</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    file.open(path.c_str());</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; matches.size(); i++) {</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        file &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot; one = &quot;</span> &lt;&lt; to_string(matches[i].queryIdx) &lt;&lt; <span class="stringliteral">&quot; train = &quot;</span> &lt;&lt; to_string(matches[i].trainIdx) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    }</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    file.close();</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;}</div>
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00335">335</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;{</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordflow">if</span> (savePath.empty() || fileName.empty()) {</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;saveMatchesToFile: savePath or fileName is empty&quot;</span> }; <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    }</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keywordflow">if</span> (matches.empty()) {</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;saveMatchesToFile: matches are empty&quot;</span> }; <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    }</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    ofstream file;</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keywordtype">string</span> path = savePath + <span class="stringliteral">&quot;/&quot;</span> + fileName + <span class="stringliteral">&quot;.txt&quot;</span>;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    file.open(path.c_str());</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; matches.size(); i++) {</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        file &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot; one = &quot;</span> &lt;&lt; to_string(matches[i].queryIdx) &lt;&lt; <span class="stringliteral">&quot; train = &quot;</span></div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        &lt;&lt; to_string(matches[i].trainIdx) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    }</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    file.close();</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1233,20 +1423,30 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Sets pixel at pixel position to a given value in image.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Image. </td></tr>
+    <tr><td class="paramname">pixelPosition</td><td>Pixel position in image. </td></tr>
+    <tr><td class="paramname">pixelValue</td><td>Value of pixel to set. </td></tr>
+    <tr><td class="paramname">error</td><td>Error. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00116">116</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;{</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">if</span> (pixelPosition.x &lt; 0 || pixelPosition.x &gt;= image.size().width) {</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;setPixelValueAtPointInImage: Invalid x position.&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">if</span> (pixelPosition.y &lt; 0 || pixelPosition.y &gt;= image.size().height) {</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;setPixelValueAtPointInImage: Invalid y position.&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    }</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">if</span> (pixelValue &lt; 0 || pixelValue &gt; 255) {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;setPixelValueAtPointInImage: Invalid pixel value.&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    image.data[image.step * pixelPosition.y + image.channels() * pixelPosition.x + 0] = pixelValue;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00118">118</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;{</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">if</span> (pixelPosition.x &lt; 0 || pixelPosition.x &gt;= image.size().width) {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;setPixelValueAtPointInImage: Invalid x position.&quot;</span> }; <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">if</span> (pixelPosition.y &lt; 0 || pixelPosition.y &gt;= image.size().height) {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;setPixelValueAtPointInImage: Invalid y position.&quot;</span> }; <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">if</span> (pixelValue &lt; 0 || pixelValue &gt; 255) {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;setPixelValueAtPointInImage: Invalid pixel value.&quot;</span> }; <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    image.data[image.step * pixelPosition.y + image.channels() * pixelPosition.x + 0] = pixelValue;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1287,25 +1487,30 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Shows given image in window.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Image to show. </td></tr>
+    <tr><td class="paramname">windowName</td><td>Window name. </td></tr>
+    <tr><td class="paramname">error</td><td>Error. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00321">321</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;{</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keywordflow">if</span> (windowName.empty()) {</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;showImage: Window name is empty.&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    }</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keywordflow">if</span> (!image.data) {</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;showImage: Image to show is empty.&quot;</span> }; <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    }</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    imshow(windowName.c_str(), image);</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    waitKey();</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;}</div>
+<p>Definition at line <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html#l00356">356</a> of file <a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;{</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keywordflow">if</span> (windowName.empty()) {</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;showImage: Window name is empty.&quot;</span> }; <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    }</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="keywordflow">if</span> (!image.data) {</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        error = { <span class="keyword">true</span>, <span class="stringliteral">&quot;showImage: Image to show is empty.&quot;</span> }; <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    }</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    imshow(windowName.c_str(), image);</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    waitKey();</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>/Users/aleksander.grzyb/Dropbox/studies/studia_magisterskie/praca_magisterska/software/mostitch/src/<a class="el" href="_a_g_open_c_v_helper_8h_source.html">AGOpenCVHelper.h</a></li>
-<li>/Users/aleksander.grzyb/Dropbox/studies/studia_magisterskie/praca_magisterska/software/mostitch/src/<a class="el" href="_a_g_open_c_v_helper_8cpp_source.html">AGOpenCVHelper.cpp</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['saveimage',['saveImage',['../class_a_g_open_c_v_helper.html#a707028fc52309d5995bba38f7d47a318',1,'AGOpenCVHelper']]],
-  ['savekeypointstofile',['saveKeypointsToFile',['../class_a_g_open_c_v_helper.html#a5b0eef3df0cbd5a1c7d178bde108327d',1,'AGOpenCVHelper']]],
-  ['savematchestofile',['saveMatchesToFile',['../class_a_g_open_c_v_helper.html#ac41c11010bd169161da76ff9a6fa7d3c',1,'AGOpenCVHelper']]],
-  ['searchforpathsinimageusingskeleton',['searchForPathsInImageUsingSkeleton',['../class_a_g_image_preprocessing.html#a647ca58b51b3c252026f8af59ce8d622',1,'AGImagePreprocessing']]],
-  ['selectpointfrompath',['selectPointFromPath',['../class_a_g_mosaic_stitcher.html#a53799451bb0fa90c1629c3ae25262462',1,'AGMosaicStitcher']]],
-  ['setpixelvalueatpointinimage',['setPixelValueAtPointInImage',['../class_a_g_open_c_v_helper.html#ae970905798fc8331529ef578aa2f73ed',1,'AGOpenCVHelper']]],
-  ['showimage',['showImage',['../class_a_g_open_c_v_helper.html#a29728b9ec453bef5b96e24d6a685f844',1,'AGOpenCVHelper']]],
-  ['stitchmosaic',['stitchMosaic',['../class_a_g_mosaic_stitcher.html#a6fbe7d3db004a4c0d904eaa6fa0f0eb9',1,'AGMosaicStitcher']]]
+  ['testdetectedpathsinimage',['testDetectedPathsInImage',['../class_a_g_path_detection.html#a67f0aec7bbf067d66413f65b66460666',1,'AGPathDetection']]],
+  ['testpathdetection',['testPathDetection',['../class_a_g_mosaic_stitcher.html#aa1f2bfa635f027e1afedc9af675e4e78',1,'AGMosaicStitcher']]],
+  ['testsavecurrentdfs',['testSaveCurrentDFS',['../class_a_g_path_detection.html#abfe17524e9ebac8de660e1937609effe',1,'AGPathDetection']]],
+  ['testselectedimage',['testSelectedImage',['../class_a_g_path_detection.html#a90768dc3e962be53edc5b598e0644a34',1,'AGPathDetection']]],
+  ['teststitchbetweentwoimages',['testStitchBetweenTwoImages',['../class_a_g_mosaic_stitcher.html#aa681c3a839c24b65c1ecf4d9d67f4798',1,'AGMosaicStitcher']]],
+  ['tilenameatposition',['tileNameAtPosition',['../class_a_g_image_loader.html#a4cd6a1013428872467352b21a88f4a1c',1,'AGImageLoader']]],
+  ['tilepathatposition',['tilePathAtPosition',['../class_a_g_image_loader.html#a9d91e2ec3673e42f6e156bf225ffdf3b',1,'AGImageLoader']]]
 ];

@@ -43,11 +43,11 @@ void AGImageBlender::blendImages(std::vector<AGImage> &images, cv::Mat &outputIm
                 }
                 if (isPixelWhite) {
                     AGError checkErrorDT, checkErrorI;
-                    int weight = AGOpenCVHelper::getPixelValueAtPointInImage(image.distanceTransform, currentPoint, checkErrorDT);
+                    int weight = AGOpenCVHelper::pixelValueAtPointInImage(image.distanceTransform, currentPoint, checkErrorDT);
                     if (checkErrorDT.isError) {
                         error = { true, "blendImages: Error while getting pixel value of distance transform. " + checkError.description }; return;
                     }
-                    numeratorSum += weight * AGOpenCVHelper::getPixelValueAtPointInImage(image.image, currentPoint, checkErrorI);
+                    numeratorSum += weight * AGOpenCVHelper::pixelValueAtPointInImage(image.image, currentPoint, checkErrorI);
                     if (checkErrorI.isError) {
                         error = { true, "blendImages: Error while getting pixel value of image. " + checkErrorI.description }; return;
                     }

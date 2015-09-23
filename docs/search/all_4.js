@@ -10,5 +10,5 @@ var searchData=
   ['findshifttransform',['findShiftTransform',['../class_a_g_mosaic_stitcher.html#aea3b142c70a0d7c9f4c626b0daa53331',1,'AGMosaicStitcher']]],
   ['findtransformbasedonpaths',['findTransformBasedOnPaths',['../class_a_g_mosaic_stitcher.html#ab4408a2c0c89ed789a32d51322a02b9e',1,'AGMosaicStitcher']]],
   ['findtransformbetweenimages',['findTransformBetweenImages',['../class_a_g_mosaic_stitcher.html#a0fde792361806af52fd82115a6205b26',1,'AGMosaicStitcher']]],
-  ['findwhitepixelsinskeleton',['findWhitePixelsInSkeleton',['../class_a_g_image_preprocessing.html#ac52bd976765691dc606c8aa905699f61',1,'AGImagePreprocessing']]]
+  ['findwhitepixelsinskeleton',['findWhitePixelsInSkeleton',['../class_a_g_path_detection.html#a16a5a34d7ff4364ba66bb08be0bee401',1,'AGPathDetection']]]
 ];

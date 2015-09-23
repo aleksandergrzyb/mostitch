@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>/Users/aleksander.grzyb/Dropbox/studies/studia_magisterskie/praca_magisterska/software/mostitch/src/AGImageBlender.h Source File</title>
+<title>AGImageBlender.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,23 +77,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef __Mosaic_Stitcher__AGImageBlender__</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define __Mosaic_Stitcher__AGImageBlender__</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../thirdparty/include/opencv2/opencv.hpp&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;AGOpenCVHelper.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;AGDataStructures.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;AGOpenCVHelper.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;AGDataStructures.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;opencv2/opencv.hpp&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_a_g_image_blender.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_a_g_image_blender.html">AGImageBlender</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_a_g_image_blender.html#af60db748428932ee2a43aab2789937c4">blendImages</a>(std::vector&lt;AGImage&gt; &amp;images, cv::Mat &amp;outputImage, <a class="code" href="struct_a_g_error.html">AGError</a> &amp;error);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_a_g_image_blender.html#a964faa4530beaad1504af044942b30bc">calculateDistanceTransformOfImage</a>(<a class="code" href="struct_a_g_image.html">AGImage</a> &amp;image, <a class="code" href="struct_a_g_error.html">AGError</a> &amp;error);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* defined(__Mosaic_Stitcher__AGImageBlender__) */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_a_g_image_blender.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_a_g_image_blender.html">AGImageBlender</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_a_g_image_blender.html#af60db748428932ee2a43aab2789937c4">blendImages</a>(std::vector&lt;AGImage&gt; &amp;images, cv::Mat &amp;outputImage, <a class="code" href="struct_a_g_error.html">AGError</a> &amp;error);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_a_g_image_blender.html#a964faa4530beaad1504af044942b30bc">calculateDistanceTransformOfImage</a>(<a class="code" href="struct_a_g_image.html">AGImage</a> &amp;image, <a class="code" href="struct_a_g_error.html">AGError</a> &amp;error);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* defined(__Mosaic_Stitcher__AGImageBlender__) */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="class_a_g_image_blender_html_a964faa4530beaad1504af044942b30bc"><div class="ttname"><a href="class_a_g_image_blender.html#a964faa4530beaad1504af044942b30bc">AGImageBlender::calculateDistanceTransformOfImage</a></div><div class="ttdeci">static void calculateDistanceTransformOfImage(AGImage &amp;image, AGError &amp;error)</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_image_blender_8cpp_source.html#l00011">AGImageBlender.cpp:11</a></div></div>
-<div class="ttc" id="struct_a_g_image_html"><div class="ttname"><a href="struct_a_g_image.html">AGImage</a></div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00054">AGDataStructures.h:54</a></div></div>
-<div class="ttc" id="class_a_g_image_blender_html"><div class="ttname"><a href="class_a_g_image_blender.html">AGImageBlender</a></div><div class="ttdef"><b>Definition:</b> <a href="_a_g_image_blender_8h_source.html#l00015">AGImageBlender.h:15</a></div></div>
-<div class="ttc" id="struct_a_g_error_html"><div class="ttname"><a href="struct_a_g_error.html">AGError</a></div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00034">AGDataStructures.h:34</a></div></div>
+<div class="ttc" id="struct_a_g_image_html"><div class="ttname"><a href="struct_a_g_image.html">AGImage</a></div><div class="ttdoc">Main structure of program. Captures all properties of image. </div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00129">AGDataStructures.h:129</a></div></div>
+<div class="ttc" id="class_a_g_image_blender_html"><div class="ttname"><a href="class_a_g_image_blender.html">AGImageBlender</a></div><div class="ttdoc">Responsible for blending images into one plane. </div><div class="ttdef"><b>Definition:</b> <a href="_a_g_image_blender_8h_source.html#l00017">AGImageBlender.h:17</a></div></div>
+<div class="ttc" id="struct_a_g_error_html"><div class="ttname"><a href="struct_a_g_error.html">AGError</a></div><div class="ttdoc">Helper for error handling. Structure is passed with most of the method calls and then used inside tho...</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_data_structures_8h_source.html#l00043">AGDataStructures.h:43</a></div></div>
 <div class="ttc" id="class_a_g_image_blender_html_af60db748428932ee2a43aab2789937c4"><div class="ttname"><a href="class_a_g_image_blender.html#af60db748428932ee2a43aab2789937c4">AGImageBlender::blendImages</a></div><div class="ttdeci">static void blendImages(std::vector&lt; AGImage &gt; &amp;images, cv::Mat &amp;outputImage, AGError &amp;error)</div><div class="ttdef"><b>Definition:</b> <a href="_a_g_image_blender_8cpp_source.html#l00022">AGImageBlender.cpp:22</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
